@@ -1,5 +1,6 @@
 # 44643Sec03Team04Spring2024FinalProject
 
+A mobile application that the farmers can use to hire tractors as well as other mechanizations at a nominal amount all using their mobile phones. Most of the small and marginal farmers do not invest in mechanization due to the related huge expenses of buying this machine. It helps the farmer to fulfil their respective requirement.
 
 ## Roles and Responsibilities:
 
