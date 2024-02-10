@@ -22,6 +22,8 @@
 <img width="261" alt="Screenshot 2024-02-09 182124" src="https://github.com/S567071/44643Sec03Team04Spring2024FinalProject/assets/142835935/db500997-f291-433f-bbc2-36e33b3c2789">
 <img width="124" alt="Screenshot 2024-02-09 181941" src="https://github.com/S567071/44643Sec03Team04Spring2024FinalProject/assets/142835935/512bb9a9-70d3-4c10-8d65-aaecaf616a7e">
 <img width="134" alt="Screenshot 2024-02-09 174513" src="https://github.com/S567071/44643Sec03Team04Spring2024FinalProject/assets/142835935/69bd0bdc-979b-4202-b6c2-46b005d0963d">
+
+
 Fig - 01
 The image displayed above depicts the Login page (Fig - 01), featuring a dropdown menu with role options such as user and retailer, representing the different customer roles within the application.
 In the case of a new user without an existing account, they can click on the "newUser" link, leading them to the registration page (Fig - 02) shown below.
