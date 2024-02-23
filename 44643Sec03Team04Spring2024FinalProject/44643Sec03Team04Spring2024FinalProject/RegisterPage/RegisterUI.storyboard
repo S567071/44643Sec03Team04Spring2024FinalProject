@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="RegisterViewController" customModule="_4643Sec03Team04Spring2024FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,6 +66,9 @@
                                                         <subviews>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qiN-4l-31O">
                                                                 <rect key="frame" x="0.0" y="0.0" width="73" height="31"/>
+                                                                <connections>
+                                                                    <action selector="userAction:" destination="Y6W-OH-hqX" eventType="valueChanged" id="U6C-fb-lNa"/>
+                                                                </connections>
                                                             </switch>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDO-px-AFV">
                                                                 <rect key="frame" x="78.999999999999986" y="0.0" width="71.000000000000014" height="31"/>
@@ -80,6 +83,9 @@
                                                         <subviews>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m5j-8u-502">
                                                                 <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="31"/>
+                                                                <connections>
+                                                                    <action selector="ownerAction:" destination="Y6W-OH-hqX" eventType="valueChanged" id="HF2-Hl-vjR"/>
+                                                                </connections>
                                                             </switch>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpW-0i-PIc">
                                                                 <rect key="frame" x="73.666666666666686" y="0.0" width="76.333333333333314" height="31"/>
@@ -98,6 +104,9 @@
                                                 <rect key="frame" x="103" y="694.66666666666663" width="87" height="34.333333333333371"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Register"/>
+                                                <connections>
+                                                    <action selector="registerAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Sl9-GO-JgQ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -107,6 +116,9 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="zoX-Vl-DO0" firstAttribute="height" secondItem="t2C-uS-TOR" secondAttribute="height" multiplier="0.0470965" priority="750" id="bP2-AF-YX1"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -118,6 +130,18 @@
                             <constraint firstItem="t2C-uS-TOR" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="xDU-MH-NB7"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="confirmPasswordTF" destination="O9Q-E5-KD6" id="Kwa-RM-gNw"/>
+                        <outlet property="emailIdTF" destination="89f-Tj-ncy" id="QSd-75-fuz"/>
+                        <outlet property="firstNameTF" destination="ZeP-xw-rPh" id="27y-77-EBY"/>
+                        <outlet property="lastNameTF" destination="ykD-5K-NOr" id="pM1-FH-AFk"/>
+                        <outlet property="ownerSwitch" destination="m5j-8u-502" id="DlQ-ec-qVL"/>
+                        <outlet property="ownerTF" destination="CpW-0i-PIc" id="FBE-eQ-xGK"/>
+                        <outlet property="passwordTF" destination="yNU-aY-hOI" id="01e-To-V2r"/>
+                        <outlet property="phoneNumberTF" destination="ssA-Zn-btf" id="WTE-E5-r93"/>
+                        <outlet property="userSwitch" destination="qiN-4l-31O" id="FmZ-uX-WcE"/>
+                        <outlet property="userTF" destination="aDO-px-AFV" id="CXC-pR-mBG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -126,7 +150,7 @@
     </scenes>
     <resources>
         <systemColor name="systemCyanColor">
-            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.1960784314" green="0.67843137249999996" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
