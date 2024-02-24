@@ -9,13 +9,23 @@ import UIKit
 
 class LoginVC: UIViewController {
 
+    
+    @IBOutlet weak var loginID: UITextField!
+    
+    @IBOutlet weak var password: UITextField!
+    
+    @IBOutlet weak var selectCATEG: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func loginAction(_ sender: UIButton) {
+        
+    }
+    
     /*
     // MARK: - Navigation
 

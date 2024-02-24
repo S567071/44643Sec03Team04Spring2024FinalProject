@@ -60,6 +60,9 @@
                                         <buttonConfiguration key="configuration" style="filled" title="LOGIN">
                                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dIz-er-QEY"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DP4-RD-7J3" userLabel="RegistersSV">
                                         <rect key="frame" x="0.0" y="679" width="353" height="40"/>
@@ -95,6 +98,11 @@
                             <constraint firstAttribute="trailing" secondItem="Sbh-QA-Nfc" secondAttribute="trailing" constant="20" id="Ua2-vi-RUi"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginID" destination="KEd-Ci-PWX" id="j9T-Kd-3Oc"/>
+                        <outlet property="password" destination="o90-IG-zqO" id="J74-BW-gwF"/>
+                        <outlet property="selectCATEG" destination="82B-io-ZQ0" id="qs6-uE-VGq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
