@@ -12,10 +12,12 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.ownerSwitch.isOn = false;
-        self.userSwitch.isOn = false;
+        self.ownerSwitch.isOn = false
+        self.userSwitch.isOn = false
+        self.registerButton.isEnabled = false
     }
 
+    @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var emailIdTF: UITextField!
     @IBOutlet weak var phoneNumberTF: UITextField!
     @IBOutlet weak var firstNameTF: UITextField!
