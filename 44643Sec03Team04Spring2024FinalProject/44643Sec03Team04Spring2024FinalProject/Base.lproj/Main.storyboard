@@ -38,6 +38,9 @@
                                         <rect key="frame" x="0.0" y="439.33333333333337" width="353" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="userRole:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="tEe-c8-yId"/>
+                                        </connections>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hQG-TT-evR" userLabel="CredentialsSV">
                                         <rect key="frame" x="0.0" y="519.33333333333337" width="353" height="72"/>

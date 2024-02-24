@@ -22,9 +22,18 @@ class LoginVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func userRole(_ sender: Any) {
+    }
+    
+    
+    
+    
     @IBAction func loginAction(_ sender: UIButton) {
         
     }
+    
+    
     
     /*
     // MARK: - Navigation
