@@ -40,12 +40,12 @@ class RegisterViewController: UIViewController {
     }
     
     private func validateInputFields() {
-        var email = self.emailIdTF.text ?? ""
-        var phoneNumber = self.phoneNumberTF.text ?? ""
-        var firstname = self.firstNameTF.text ?? ""
-        var lastName = self.lastNameTF.text ?? ""
-        var password = self.passwordTF.text ?? ""
-        var confirmPassword = self.confirmPasswordTF.text ?? ""
+        let email = self.emailIdTF.text ?? ""
+        let phoneNumber = self.phoneNumberTF.text ?? ""
+        let firstname = self.firstNameTF.text ?? ""
+        let lastName = self.lastNameTF.text ?? ""
+        let password = self.passwordTF.text ?? ""
+        let confirmPassword = self.confirmPasswordTF.text ?? ""
         
         var validationMessage = ""
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
