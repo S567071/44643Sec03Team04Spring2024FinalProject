@@ -1,21 +1,31 @@
 //
-//  RegisterViewController.swift
+//  LoginVC.swift
 //  44643Sec03Team04Spring2024FinalProject
 //
-//  Created by Pranathi Reddy Jeedipally on 2/21/24.
+//  Created by Laxminarayana Yadav Pakanati on 2/23/24.
 //
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+class LoginVC: UIViewController {
 
+    
+    @IBOutlet weak var loginID: UITextField!
+    
+    @IBOutlet weak var password: UITextField!
+    
+    @IBOutlet weak var selectCATEG: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func loginAction(_ sender: UIButton) {
+        
+    }
+    
     /*
     // MARK: - Navigation
 
