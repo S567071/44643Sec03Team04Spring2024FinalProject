@@ -1,8 +1,8 @@
 //
-//  RegisterViewController.swift
+//  RegisterationVC.swift
 //  44643Sec03Team04Spring2024FinalProject
 //
-//  Created by Pranathi Reddy Jeedipally on 3/2/24.
+//  Created by Laxminarayana Yadav Pakanati on 3/6/24.
 //
 
 import UIKit
