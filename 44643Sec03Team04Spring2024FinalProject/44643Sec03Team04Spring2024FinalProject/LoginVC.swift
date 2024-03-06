@@ -16,6 +16,10 @@ class LoginVC: UIViewController {
     
     @IBOutlet weak var selectCATEG: UITextField!
     
+    @IBAction func register(_ sender: UIButton) {
+        let storyboard = self.storyboard?.instantiateViewController(withIdentifier: "RegisterationVC") as! RegisterationVC
+        self.navigationController?.pushViewController(storyboard, animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +27,7 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func loginAction(_ sender: UIButton) {
-        
+        self.performSegue(withIdentifier: "Owner", sender: self)
     }
     
     /*

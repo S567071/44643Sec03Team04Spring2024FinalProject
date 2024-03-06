@@ -70,8 +70,13 @@ Navigation among the screens:
 
 <img width="287" alt="Screenshot 2024-02-09 183303" src="https://github.com/S567071/44643Sec03Team04Spring2024FinalProject/assets/142835935/aeafb72a-56a6-4a8b-a183-beda59d50470">
 
+Sprint - 03
 
- 
+Login Page: The login page UI,AutoLayouts has been created.
+The outlets and actions for the login page are being completed.
+
+Register Page: The registration page UI has been created. 
+UI AutoLayouts, outlets and actions for the Register page are being completed. functionality has been developed.
 
 
 
