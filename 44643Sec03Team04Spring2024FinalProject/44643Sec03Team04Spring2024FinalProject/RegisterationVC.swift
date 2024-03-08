@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterationVC: UIViewController {
 
@@ -28,7 +29,29 @@ class RegisterationVC: UIViewController {
     @IBOutlet weak var ownerSwitch: UISwitch!
     
     @IBAction func registerAction(_ sender: UIButton) {
-        self.validateInputFields()
+        var isFormValid = self.validateInputFields()
+        var validationMessage  = ""
+        if (isFormValid) {
+            FirebaseAuth.Auth.auth().createUser(withEmail: self.emailIdTF.text ?? "", password: self.passwordTF.text ?? "") { result, error in
+                if (error != nil) {
+                    if let error = error as NSError? {
+                        if let errorCode = AuthErrorCode.Code(rawValue: error.code) {
+                            switch errorCode {
+                                case .emailAlreadyInUse :
+                                    validationMessage = "Email is already in use."
+                                default :
+                                    validationMessage = "Something is failed."
+                            }
+                        }
+                    }
+                    
+                    self.showAlert(title: "Account creation failed.", message: validationMessage, buttonText: "close")
+                }
+                else {
+                    self.showAlert(title: "Registered Successfully.", message: "Registered successfully. Please login.", buttonText: "Ok")
+                }
+            };
+        }
     }
     
     @IBAction func userAction(_ sender: UISwitch) {
@@ -37,7 +60,13 @@ class RegisterationVC: UIViewController {
     @IBAction func ownerAction(_ sender: UISwitch) {
     }
     
-    private func validateInputFields() {
+    private func showAlert(title :String, message :String, buttonText :String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: buttonText, style: UIAlertAction.Style.default))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func validateInputFields() -> Bool {
         let email = self.emailIdTF.text ?? ""
         let phoneNumber = self.phoneNumberTF.text ?? ""
         let firstname = self.firstNameTF.text ?? ""
@@ -80,9 +109,11 @@ class RegisterationVC: UIViewController {
         }
         
         if (validationMessage.count > 0) {
-            let alert = UIAlertController(title: "Invalid Inputs", message: validationMessage, preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.default))
-            self.present(alert, animated: true, completion: nil)
+            self.showAlert(title: "Invalid Inputs", message: validationMessage, buttonText: "Close")
+            return false;
+        }
+        else {
+            return true;
         }
         
     }

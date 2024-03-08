@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07E307D42B871F8600E09B92 /* RegisterUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07E307D32B871F8600E09B92 /* RegisterUI.storyboard */; };
 		203410B52B86CC8100B24B4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203410B42B86CC8100B24B4F /* AppDelegate.swift */; };
 		203410B72B86CC8100B24B4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203410B62B86CC8100B24B4F /* SceneDelegate.swift */; };
 		203410B92B86CC8100B24B4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203410B82B86CC8100B24B4F /* ViewController.swift */; };
@@ -22,11 +21,9 @@
 		20CB1B992B993E6E0041FBDD /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 20CB1B982B993E6E0041FBDD /* FirebaseAuth */; };
 		20CB1B9B2B993E6E0041FBDD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 20CB1B9A2B993E6E0041FBDD /* FirebaseFirestore */; };
 		20CB1B9D2B993E6E0041FBDD /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 20CB1B9C2B993E6E0041FBDD /* FirebaseFirestoreSwift */; };
-		3CAF2A0C2B86EBD30014F4A0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF2A0B2B86EBD30014F4A0 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		07E307D32B871F8600E09B92 /* RegisterUI.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterUI.storyboard; sourceTree = "<group>"; };
 		203410B12B86CC8100B24B4F /* 44643Sec03Team04Spring2024FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 44643Sec03Team04Spring2024FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		203410B42B86CC8100B24B4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		203410B62B86CC8100B24B4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,7 +35,6 @@
 		20BB2A3F2B89679700AF2548 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		20CB1B8F2B991CB30041FBDD /* RegisterationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationVC.swift; sourceTree = "<group>"; };
 		20CB1B912B993D320041FBDD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		3CAF2A0B2B86EBD30014F4A0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,15 +53,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		07E307D52B87397200E09B92 /* RegisterPage */ = {
-			isa = PBXGroup;
-			children = (
-				3CAF2A0B2B86EBD30014F4A0 /* RegisterViewController.swift */,
-				07E307D32B871F8600E09B92 /* RegisterUI.storyboard */,
-			);
-			path = RegisterPage;
-			sourceTree = "<group>";
-		};
 		203410A82B86CC8100B24B4F = {
 			isa = PBXGroup;
 			children = (
@@ -85,7 +72,6 @@
 		203410B32B86CC8100B24B4F /* 44643Sec03Team04Spring2024FinalProject */ = {
 			isa = PBXGroup;
 			children = (
-				07E307D52B87397200E09B92 /* RegisterPage */,
 				20BB2A3E2B86E92500AF2548 /* supportfiles */,
 				203410BA2B86CC8100B24B4F /* Main.storyboard */,
 				20CB1B912B993D320041FBDD /* GoogleService-Info.plist */,
@@ -180,7 +166,6 @@
 				203410BE2B86CC8700B24B4F /* Assets.xcassets in Resources */,
 				20CB1B922B993D320041FBDD /* GoogleService-Info.plist in Resources */,
 				203410BC2B86CC8100B24B4F /* Main.storyboard in Resources */,
-				07E307D42B871F8600E09B92 /* RegisterUI.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +180,6 @@
 				203410B52B86CC8100B24B4F /* AppDelegate.swift in Sources */,
 				203410B72B86CC8100B24B4F /* SceneDelegate.swift in Sources */,
 				20CB1B902B991CB30041FBDD /* RegisterationVC.swift in Sources */,
-				3CAF2A0C2B86EBD30014F4A0 /* RegisterViewController.swift in Sources */,
 				20BB2A402B89679700AF2548 /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
