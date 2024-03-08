@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uWQ-W3-Ftw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uWQ-W3-Ftw">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -229,6 +229,9 @@
                                                 <subviews>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cid-wY-vQb">
                                                         <rect key="frame" x="0.0" y="12.333333333333258" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="userAction:" destination="yeu-xT-x6l" eventType="valueChanged" id="XqS-dD-6mn"/>
+                                                        </connections>
                                                     </switch>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJ2-Ch-55a">
                                                         <rect key="frame" x="57" y="17.666666666666629" width="296" height="20.333333333333329"/>
@@ -243,6 +246,9 @@
                                                 <subviews>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q2L-bM-6qS">
                                                         <rect key="frame" x="0.0" y="12.333333333333258" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="ownerAction:" destination="yeu-xT-x6l" eventType="valueChanged" id="Rx6-mo-1Ev"/>
+                                                        </connections>
                                                     </switch>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7W-mp-5XJ">
                                                         <rect key="frame" x="57" y="17.666666666666629" width="296" height="20.333333333333329"/>
@@ -267,6 +273,9 @@
                                                         <buttonConfiguration key="configuration" style="filled" title="Register" cornerStyle="capsule">
                                                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="registerAction:" destination="yeu-xT-x6l" eventType="touchUpInside" id="QVY-9o-WGf"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGj-O4-jQb">
                                                         <rect key="frame" x="235.33333333333334" y="0.0" width="117.66666666666666" height="56"/>
@@ -297,6 +306,17 @@
                             <constraint firstItem="nrb-P0-HTU" firstAttribute="bottom" secondItem="nt8-R1-pl1" secondAttribute="bottom" constant="20" id="bD9-JG-ebx"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="confirmPasswordTF" destination="r1Z-3D-ipk" id="h8u-Vt-fZP"/>
+                        <outlet property="emailIdTF" destination="g5B-O0-6Ha" id="7bb-4c-oak"/>
+                        <outlet property="firstNameTF" destination="KeJ-Ry-JBA" id="wkX-1C-qM3"/>
+                        <outlet property="lastNameTF" destination="89v-0g-x3J" id="V43-sp-6ba"/>
+                        <outlet property="ownerSwitch" destination="Q2L-bM-6qS" id="BMo-zV-2Ah"/>
+                        <outlet property="passwordTF" destination="1xb-Dn-Jh0" id="J7P-zN-dDM"/>
+                        <outlet property="phoneNumberTF" destination="KKv-mc-O5r" id="VNw-Kx-fuO"/>
+                        <outlet property="registerButton" destination="heC-Af-lZW" id="W0L-5k-Yw2"/>
+                        <outlet property="userSwitch" destination="cid-wY-vQb" id="zCP-EU-fuI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1tK-iT-YPM" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -327,7 +347,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
