@@ -4,7 +4,6 @@
 //
 //  Created by Laxminarayana Yadav Pakanati on 3/6/24.
 //
-
 import UIKit
 import Firebase
 
@@ -12,10 +11,7 @@ class RegisterationVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.ownerSwitch.isOn = false
-        self.userSwitch.isOn = true
-        //self.registerButton.isEnabled = false
+        self.setDefultValues()
     }
 
     @IBOutlet weak var registerButton: UIButton!
@@ -27,6 +23,8 @@ class RegisterationVC: UIViewController {
     @IBOutlet weak var confirmPasswordTF: UITextField!
     @IBOutlet weak var userSwitch: UISwitch!
     @IBOutlet weak var ownerSwitch: UISwitch!
+    
+    var validationMessage = ""
     
     @IBAction func registerAction(_ sender: UIButton) {
         var isFormValid = self.validateInputFields()
@@ -49,15 +47,22 @@ class RegisterationVC: UIViewController {
                 }
                 else {
                     self.showAlert(title: "Registered Successfully.", message: "Registered successfully. Please login.", buttonText: "Ok")
+                    self.setDefultValues()
                 }
             };
         }
     }
     
     @IBAction func userAction(_ sender: UISwitch) {
+        if (sender.isOn) {
+            self.ownerSwitch.isOn = false
+        }
     }
     
     @IBAction func ownerAction(_ sender: UISwitch) {
+        if (sender.isOn) {
+            self.userSwitch.isOn = false
+        }
     }
     
     private func showAlert(title :String, message :String, buttonText :String) {
@@ -66,50 +71,101 @@ class RegisterationVC: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func validateInputFields() -> Bool {
-        let email = self.emailIdTF.text ?? ""
-        let phoneNumber = self.phoneNumberTF.text ?? ""
-        let firstname = self.firstNameTF.text ?? ""
-        let lastName = self.lastNameTF.text ?? ""
-        let password = self.passwordTF.text ?? ""
-        let confirmPassword = self.confirmPasswordTF.text ?? ""
+    private func setDefultValues() {
+        self.emailIdTF.text = ""
+        self.phoneNumberTF.text = ""
+        self.firstNameTF.text = ""
+        self.lastNameTF.text = ""
+        self.passwordTF.text = ""
+        self.confirmPasswordTF.text = ""
+        self.ownerSwitch.isOn = false
+        self.userSwitch.isOn = false
         
-        var validationMessage = ""
+        self.emailIdTF.layer.borderWidth = 0;
+        self.phoneNumberTF.layer.borderWidth = 0;
+        self.firstNameTF.layer.borderWidth = 0;
+        self.lastNameTF.layer.borderWidth = 0;
+        self.passwordTF.layer.borderWidth = 0;
+        self.confirmPasswordTF.layer.borderWidth = 0;
+    }
+    
+    private func validateEmail() {
+        let email = self.emailIdTF.text ?? ""
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         if (!emailPred.evaluate(with: email)){
-            validationMessage += "Email is invalid.\n"
+            self.validationMessage += "Email is invalid.\n"
+            self.emailIdTF.layer.borderWidth = 1.0
             self.emailIdTF.layer.borderColor = CGColor.init(red: 256, green: 0, blue: 0, alpha: 0.7);
         }
-        
+    }
+    
+    private func validatePhoneNum() {
+        let phoneNumber = self.phoneNumberTF.text ?? ""
         if (!phoneNumber.allSatisfy({$0.isNumber}) || phoneNumber.count != 10) {
-            validationMessage += "Phone number is invalid.\n";
+            self.validationMessage += "Phone number is invalid.\n";
+            self.phoneNumberTF.layer.borderWidth = 1.0
             self.phoneNumberTF.layer.borderColor = CGColor.init(red: 256, green: 0, blue: 0, alpha: 0.7);
         }
-        
+    }
+    
+    private func validateFirstName() {
+        let firstname = self.firstNameTF.text ?? ""
         if (!firstname.allSatisfy({$0.isLetter}) || firstname.count == 0) {
-            validationMessage += firstname.count == 0 ? "First name cannot be empty.\n" : "First name cannot contain any numbers and symbols.\n"
+            self.validationMessage += firstname.count == 0 ? "First name cannot be empty.\n" : "First name cannot contain any numbers and symbols.\n"
+            self.firstNameTF.layer.borderWidth = 1.0
             self.firstNameTF.layer.borderColor = CGColor.init(red: 256, green: 0, blue: 0, alpha: 0.7);
         }
-        
+    }
+    
+    private func validateLastName() {
+        let lastName = self.lastNameTF.text ?? ""
         if (!lastName.allSatisfy({$0.isLetter}) || lastName.count == 0) {
-            validationMessage += lastName.count == 0 ? "Last name cannot be empty.\n" : "Last name cannot contain any numbers and symbols.\n"
+            self.validationMessage += lastName.count == 0 ? "Last name cannot be empty.\n" : "Last name cannot contain any numbers and symbols.\n"
+            self.lastNameTF.layer.borderWidth = 1.0
             self.lastNameTF.layer.borderColor = CGColor.init(red: 256, green: 0, blue: 0, alpha: 0.7);
         }
-        
+    }
+    
+    private func validatePassword() {
+        let password = self.passwordTF.text ?? ""
         if (password.count < 8) {
-            validationMessage += "Password should be greater than or equal to 8 characters.\n"
+            self.validationMessage += "Password should be greater than or equal to 8 characters.\n"
+            self.passwordTF.layer.borderWidth = 1.0
             self.passwordTF.layer.borderColor = CGColor.init(red: 256, green: 0, blue: 0, alpha: 0.7);
         }
-        
-        if (confirmPassword != password) {
-            validationMessage += "Confirmated password doesn't match with password.\n"
+    }
+    
+    private func validateConfirmPassword() {
+        let password = self.passwordTF.text ?? ""
+        let confirmPassword = self.confirmPasswordTF.text ?? ""
+        if (confirmPassword != password || password.count == 0) {
+            self.validationMessage += "Confirmated password doesn't match with password.\n"
+            self.confirmPasswordTF.layer.borderWidth = 1.0
             self.confirmPasswordTF.layer.borderColor = CGColor.init(red: 256, green: 0, blue: 0, alpha: 0.7);
         }
+    }
+    
+    private func validateUserOrOwner() {
+        if (!self.ownerSwitch.isOn && !self.userSwitch.isOn) {
+            self.validationMessage += "Select User or Owner.\n"
+        }
+    }
+    
+    private func validateInputFields() -> Bool {
+        self.validationMessage = ""
+        self.validateEmail()
+        self.validatePhoneNum()
+        self.validateFirstName()
+        self.validateLastName()
+        self.validatePassword()
+        self.validateConfirmPassword()
+        self.validateUserOrOwner()
         
-        if (validationMessage.count > 0) {
-            self.showAlert(title: "Invalid Inputs", message: validationMessage, buttonText: "Close")
+        if (self.validationMessage.count > 0) {
+            self.showAlert(title: "Invalid Inputs", message: self.validationMessage, buttonText: "Close")
+            self.validationMessage = ""
             return false;
         }
         else {
