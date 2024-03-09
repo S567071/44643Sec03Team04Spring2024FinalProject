@@ -78,7 +78,9 @@ The outlets and actions for the login page are being completed.
 Register Page: The registration page UI has been created. 
 UI AutoLayouts, outlets and actions for the Register page are being completed. functionality has been developed.
 
+Sprint - 04
 
+Firebase Integration - Integrated firebase to the project,we are using Firebase Authentication to handle user authentication, implemented authentication logic for login and registration screen data like email, password and phone number etc.,
 
-
+Navigation Controller Integration - Embedded screen view controllers within a navigation controller.
 
