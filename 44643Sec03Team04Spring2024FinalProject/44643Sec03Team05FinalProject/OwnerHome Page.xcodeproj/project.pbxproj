@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		39F094C52B9ABAE700D0CD8A /* 44643Sec03Team05FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 44643Sec03Team05FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		39F094C52B9ABAE700D0CD8A /* OwnerHome Page.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OwnerHome Page.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39F094C82B9ABAE700D0CD8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39F094CA2B9ABAE700D0CD8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		39F094CC2B9ABAE700D0CD8A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 		39F094BC2B9ABAE600D0CD8A = {
 			isa = PBXGroup;
 			children = (
-				39F094C72B9ABAE700D0CD8A /* 44643Sec03Team05FinalProject */,
+				39F094C72B9ABAE700D0CD8A /* OwnerHome Page */,
 				39F094C62B9ABAE700D0CD8A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,12 +48,12 @@
 		39F094C62B9ABAE700D0CD8A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				39F094C52B9ABAE700D0CD8A /* 44643Sec03Team05FinalProject.app */,
+				39F094C52B9ABAE700D0CD8A /* OwnerHome Page.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		39F094C72B9ABAE700D0CD8A /* 44643Sec03Team05FinalProject */ = {
+		39F094C72B9ABAE700D0CD8A /* OwnerHome Page */ = {
 			isa = PBXGroup;
 			children = (
 				39F094C82B9ABAE700D0CD8A /* AppDelegate.swift */,
@@ -64,15 +64,15 @@
 				39F094D32B9ABAE700D0CD8A /* LaunchScreen.storyboard */,
 				39F094D62B9ABAE700D0CD8A /* Info.plist */,
 			);
-			path = 44643Sec03Team05FinalProject;
+			path = "OwnerHome Page";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		39F094C42B9ABAE700D0CD8A /* 44643Sec03Team05FinalProject */ = {
+		39F094C42B9ABAE700D0CD8A /* OwnerHome Page */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 39F094D92B9ABAE700D0CD8A /* Build configuration list for PBXNativeTarget "44643Sec03Team05FinalProject" */;
+			buildConfigurationList = 39F094D92B9ABAE700D0CD8A /* Build configuration list for PBXNativeTarget "OwnerHome Page" */;
 			buildPhases = (
 				39F094C12B9ABAE700D0CD8A /* Sources */,
 				39F094C22B9ABAE700D0CD8A /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = 44643Sec03Team05FinalProject;
+			name = "OwnerHome Page";
 			productName = 44643Sec03Team05FinalProject;
-			productReference = 39F094C52B9ABAE700D0CD8A /* 44643Sec03Team05FinalProject.app */;
+			productReference = 39F094C52B9ABAE700D0CD8A /* OwnerHome Page.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +102,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 39F094C02B9ABAE600D0CD8A /* Build configuration list for PBXProject "44643Sec03Team05FinalProject" */;
+			buildConfigurationList = 39F094C02B9ABAE600D0CD8A /* Build configuration list for PBXProject "OwnerHome Page" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				39F094C42B9ABAE700D0CD8A /* 44643Sec03Team05FinalProject */,
+				39F094C42B9ABAE700D0CD8A /* OwnerHome Page */,
 			);
 		};
 /* End PBXProject section */
@@ -342,7 +342,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		39F094C02B9ABAE600D0CD8A /* Build configuration list for PBXProject "44643Sec03Team05FinalProject" */ = {
+		39F094C02B9ABAE600D0CD8A /* Build configuration list for PBXProject "OwnerHome Page" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				39F094D72B9ABAE700D0CD8A /* Debug */,
@@ -351,7 +351,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		39F094D92B9ABAE700D0CD8A /* Build configuration list for PBXNativeTarget "44643Sec03Team05FinalProject" */ = {
+		39F094D92B9ABAE700D0CD8A /* Build configuration list for PBXNativeTarget "OwnerHome Page" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				39F094DA2B9ABAE700D0CD8A /* Debug */,

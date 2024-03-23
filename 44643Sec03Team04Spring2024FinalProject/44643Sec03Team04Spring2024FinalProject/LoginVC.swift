@@ -26,6 +26,8 @@ class LoginVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    func
     @IBAction func loginAction(_ sender: UIButton) {
         self.performSegue(withIdentifier: "Owner", sender: self)
     }
