@@ -29,7 +29,7 @@ class RegisterationVC: UIViewController {
     @IBOutlet weak var ownerSwitch: UISwitch!
     
     @IBAction func registerAction(_ sender: UIButton) {
-        var isFormValid = self.validateInputFields()
+        let isFormValid = self.validateInputFields()
         var validationMessage  = ""
         if (isFormValid) {
             FirebaseAuth.Auth.auth().createUser(withEmail: self.emailIdTF.text ?? "", password: self.passwordTF.text ?? "") { result, error in
