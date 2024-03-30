@@ -46,8 +46,29 @@ class RegisterationVC: UIViewController {
                     self.showAlert(title: "Account creation failed.", message: validationMessage, buttonText: "close")
                 }
                 else {
-                    self.showAlert(title: "Registered Successfully.", message: "Registered successfully. Please login.", buttonText: "Ok")
-                    self.setDefultValues()
+                    let userType = self.userSwitch.isEnabled ? UserType.User : UserType.Owner
+                    
+                    let userData = [
+                        "Email" : self.emailIdTF.text ?? "",
+                        "FirstName" : self.firstNameTF.text ?? "",
+                        "PhoneNumber" : Int(self.phoneNumberTF.text ?? "") ?? 0,
+                        "LastName" : self.lastNameTF.text ?? "",
+                        "UserType" : userType
+                    ]
+                    
+                    guard let userId = result?.user.uid else { return }
+                    
+                    
+                    Firestore.firestore().collection("UserData").document(userId).setData(userData) { error in
+                        if (error != nil) {
+                          // Handle errors while storing user data
+                            self.showAlert(title: "User data storing failed.", message: "Something went wrong.", buttonText: "close")
+                        } else {
+                          // User creation and data storage successful
+                            self.showAlert(title: "Registered Successfully.", message: "Registered successfully. Please login.", buttonText: "Ok")
+                            self.setDefultValues()
+                        }
+                    }
                 }
             };
         }

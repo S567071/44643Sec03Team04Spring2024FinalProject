@@ -7,16 +7,10 @@
 
 import Foundation
 
-class User {
-    var email: String
-    var phoneNumber: Int
-    var firstName: String
-    var lastName: String
-    
-    init(email: String, phoneNumber: Int, firstName: String, lastName: String) {
-        self.email = email
-        self.phoneNumber = phoneNumber
-        self.firstName = firstName
-        self.lastName = lastName
-    }
+struct User {
+    let email: String
+    let phoneNumber: Int
+    let firstName: String
+    let lastName: String
+    let userType: UserType
 }
