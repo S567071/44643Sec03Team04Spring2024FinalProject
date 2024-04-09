@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
 
@@ -17,6 +18,8 @@ class LoginVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
     @IBOutlet weak var selectCATEG: UITextField!
     
     @IBOutlet weak var pickerView: UIPickerView!
+    
+    @IBOutlet weak var messageLBL: UILabel!
     
     let options = ["Admin", "User"]
     
@@ -52,22 +55,52 @@ class LoginVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
         }
     
     @IBAction func loginAction(_ sender: UIButton) {
-        if(selectedOption.elementsEqual("Admin")){
-            self.performSegue(withIdentifier: "Owner", sender: self)
+        if loginID.text == "" {
+            
+            messageLBL.text = "Please enter Username!."
+        }else if password.text == "" {
+            
+            messageLBL.text = "Please enter Password!"
+        }else {
+            Task {
+                await loginUser(email: loginID.text!, password: password.text!)
+            }
         }
-        else{
-            self.performSegue(withIdentifier: "userHomePage", sender: self)
-        }
+        
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func loginUser(email: String, password: String) async {
+        do {
+            try await AuthenticationManager.shared.signIn(email: email, password: password)
+            fetchUserRole(email: email)
+            
+        } catch {
+            
+            self.messageLBL.text = "Invalid Login Credentials! Please try again."
+        }
     }
-    */
+   
+    func fetchUserRole(email: String) {
+            let db = Firestore.firestore()
+            
+            db.collection("users").document(email).getDocument { [weak self] (document, error) in
+                guard let strongSelf = self else { return }
+                
+                if let document = document, document.exists {
+                    if "Admin" == document.data()?["role"] as? String {
+                        self?.performSegue(withIdentifier: "Owner", sender: self)
+                        //strongSelf.performSegue(withIdentifier: "loggedInSegue", sender: role)
+                    }
+                    else if "User" == document.data()?["role"] as? String{
+                        self?.performSegue(withIdentifier: "userHomePage", sender: self)
+                    }
+                    else {
+                        strongSelf.messageLBL.text = "User role not found"
+                    }
+                } else {
+                    strongSelf.messageLBL.text = "User document not found"
+                }
+            }
+        }
 
 }

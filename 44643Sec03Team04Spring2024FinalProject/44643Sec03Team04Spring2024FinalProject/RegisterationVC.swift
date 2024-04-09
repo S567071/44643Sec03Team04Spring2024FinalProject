@@ -29,6 +29,15 @@ class RegisterationVC: UIViewController {
     @IBOutlet weak var ownerSwitch: UISwitch!
     
     @IBAction func registerAction(_ sender: UIButton) {
+        guard let email = emailIdTF.text, !email.isEmpty,
+                      let phoneNumber = phoneNumberTF.text, !phoneNumber.isEmpty,
+                      let firstName = firstNameTF.text, !firstName.isEmpty,
+                      let lastName = lastNameTF.text, !lastName.isEmpty,
+                      let password = passwordTF.text, !password.isEmpty,
+                      let confirmPassword = confirmPasswordTF.text, !confirmPassword.isEmpty else {
+                    showAlert(message: "Please fill in all fields")
+                    return
+                }
         let isFormValid = self.validateInputFields()
         var validationMessage  = ""
         if (isFormValid) {
@@ -44,15 +53,37 @@ class RegisterationVC: UIViewController {
                             }
                         }
                     }
-                    
                     self.showAlert(title: "Account creation failed.", message: validationMessage, buttonText: "close")
                 }
                 else {
                     self.showAlert(title: "Registered Successfully.", message: "Registered successfully. Please login.", buttonText: "Ok")
+                    let role = self.ownerSwitch.isOn ? "Owner" : (self.userSwitch.isOn ? "User" : "Guest")
+                    self.setUserDetailsAndRole(email: email, phoneNumber: phoneNumber, firstName: firstName, lastName: lastName, role: role)
+                    self.performSegue(withIdentifier: "loginPage", sender: self)
                 }
             };
         }
     }
+    
+    func setUserDetailsAndRole(email: String, phoneNumber: String, firstName: String, lastName: String, role: String) {
+            let db = Firestore.firestore()
+            let userData: [String: Any] = [
+                "email": email,
+                "phoneNumber": phoneNumber,
+                "firstName": firstName,
+                "lastName": lastName,
+                "role": role
+            ]
+
+            db.collection("users").document(email).setData(userData) { error in
+                if let error = error {
+                    print("Error setting user details and role: \(error.localizedDescription)")
+                } else {
+                    print("User details and role set successfully")
+                    // Navigate to the next screen or perform appropriate action
+                }
+            }
+        }
     
     @IBAction func userAction(_ sender: UISwitch) {
     }
@@ -117,4 +148,9 @@ class RegisterationVC: UIViewController {
         }
         
     }
+    func showAlert(message: String) {
+            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
 }
