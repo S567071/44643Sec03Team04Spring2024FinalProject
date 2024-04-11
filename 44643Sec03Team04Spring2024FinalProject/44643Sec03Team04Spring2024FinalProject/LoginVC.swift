@@ -88,7 +88,7 @@ class LoginVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
                 
                 if let document = document, document.exists {
                     if "Admin" == document.data()?["role"] as? String {
-                        self?.performSegue(withIdentifier: "Owner", sender: self)
+                        self?.performSegue(withIdentifier: "OwnerHomePage", sender: self)
                         //strongSelf.performSegue(withIdentifier: "loggedInSegue", sender: role)
                     }
                     else if "User" == document.data()?["role"] as? String{
