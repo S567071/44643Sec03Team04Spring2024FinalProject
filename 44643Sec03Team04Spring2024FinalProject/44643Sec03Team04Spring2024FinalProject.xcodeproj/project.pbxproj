@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07BAEEF22BB71CCD00A29D39 /* UserBookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BAEEF12BB71CCD00A29D39 /* UserBookingVC.swift */; };
 		203410B52B86CC8100B24B4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203410B42B86CC8100B24B4F /* AppDelegate.swift */; };
 		203410B72B86CC8100B24B4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203410B62B86CC8100B24B4F /* SceneDelegate.swift */; };
 		203410B92B86CC8100B24B4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203410B82B86CC8100B24B4F /* ViewController.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07BAEEF12BB71CCD00A29D39 /* UserBookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBookingVC.swift; sourceTree = "<group>"; };
 		203410B12B86CC8100B24B4F /* 44643Sec03Team04Spring2024FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 44643Sec03Team04Spring2024FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		203410B42B86CC8100B24B4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		203410B62B86CC8100B24B4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				203410BF2B86CC8700B24B4F /* LaunchScreen.storyboard */,
 				203410C22B86CC8700B24B4F /* Info.plist */,
 				3CA7E2DD2BB3E42000E68398 /* GoogleService-Info.plist */,
+				07BAEEF12BB71CCD00A29D39 /* UserBookingVC.swift */,
 			);
 			path = 44643Sec03Team04Spring2024FinalProject;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				203410B72B86CC8100B24B4F /* SceneDelegate.swift in Sources */,
 				204D1FDD2BC45C80001E8E2A /* AuthenticationModel.swift in Sources */,
 				204D1FDF2BC48B60001E8E2A /* ResetPasswordVC.swift in Sources */,
+				07BAEEF22BB71CCD00A29D39 /* UserBookingVC.swift in Sources */,
 				20CB1B902B991CB30041FBDD /* RegisterationVC.swift in Sources */,
 				20BB2A402B89679700AF2548 /* LoginVC.swift in Sources */,
 			);

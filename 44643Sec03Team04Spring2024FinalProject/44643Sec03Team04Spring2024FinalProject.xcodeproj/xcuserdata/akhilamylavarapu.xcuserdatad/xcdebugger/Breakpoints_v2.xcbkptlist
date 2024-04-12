@@ -8,31 +8,15 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "A60FE7D0-3D9A-4EED-A259-0AFE2918D5B0"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "44643Sec03Team04Spring2024FinalProject/RegisterationVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "validateInputFields()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3D497ADC-7376-49F2-B2D6-F22B941F17CF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "44643Sec03Team04Spring2024FinalProject/RegisterationVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "showAlert(title:message:buttonText:)"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "setDefultValues()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
