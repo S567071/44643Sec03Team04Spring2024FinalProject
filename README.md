@@ -84,3 +84,8 @@ Firebase Integration - Integrated firebase to the project,we are using Firebase 
 
 Navigation Controller Integration - Embedded screen view controllers within a navigation controller.
 
+Sprint - 05
+
+Included Tab Bar Controller to develop the User and Vendor pages, To manage booking and orders, to view booking posts.
+resolved some firebase errors, created user collections in firebase, added new page to the project like forget password UI.
+Added segues between the screens to navigate.

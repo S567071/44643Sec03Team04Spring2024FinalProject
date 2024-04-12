@@ -42,7 +42,6 @@ class RegisterationVC: UIViewController {
                             }
                         }
                     }
-                    
                     self.showAlert(title: "Account creation failed.", message: validationMessage, buttonText: "close")
                 }
                 else {
@@ -59,9 +58,10 @@ class RegisterationVC: UIViewController {
                     guard let userId = result?.user.uid else { return }
                     
                     
-                    Firestore.firestore().collection("UserData").document(userId).setData(userData) { error in
+                    Firestore.firestore().collection("User").document(self.emailIdTF.text ?? "").setData(userData) { error in
                         if (error != nil) {
                           // Handle errors while storing user data
+                            print("Error setting user details and role: \(error.localizedDescription)")
                             self.showAlert(title: "User data storing failed.", message: "Something went wrong.", buttonText: "close")
                         } else {
                           // User creation and data storage successful
@@ -69,6 +69,7 @@ class RegisterationVC: UIViewController {
                             self.setDefultValues()
                         }
                     }
+                    self.performSegue(withIdentifier: "loginPage", sender: self)
                 }
             };
         }
@@ -194,4 +195,9 @@ class RegisterationVC: UIViewController {
         }
         
     }
+    func showAlert(message: String) {
+            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
 }
