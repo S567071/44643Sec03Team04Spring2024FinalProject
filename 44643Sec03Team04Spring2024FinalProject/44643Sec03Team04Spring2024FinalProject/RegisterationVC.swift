@@ -45,7 +45,7 @@ class RegisterationVC: UIViewController {
                     self.showAlert(title: "Account creation failed.", message: validationMessage, buttonText: "close")
                 }
                 else {
-                    let userType = self.userSwitch.isEnabled ? UserType.User : UserType.Owner
+                    let userType = self.userSwitch.isOn ? "User" : "Owner"
                     
                     let userData = [
                         "Email" : self.emailIdTF.text ?? "",
@@ -61,7 +61,6 @@ class RegisterationVC: UIViewController {
                     Firestore.firestore().collection("User").document(self.emailIdTF.text ?? "").setData(userData) { error in
                         if (error != nil) {
                           // Handle errors while storing user data
-                            print("Error setting user details and role: \(error.localizedDescription)")
                             self.showAlert(title: "User data storing failed.", message: "Something went wrong.", buttonText: "close")
                         } else {
                           // User creation and data storage successful
