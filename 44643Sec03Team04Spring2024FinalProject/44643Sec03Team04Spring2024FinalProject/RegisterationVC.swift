@@ -55,8 +55,6 @@ class RegisterationVC: UIViewController {
                         "UserType" : userType
                     ]
                     
-                    guard let userId = result?.user.uid else { return }
-                    
                     
                     Firestore.firestore().collection("User").document(self.emailIdTF.text ?? "").setData(userData) { error in
                         if (error != nil) {

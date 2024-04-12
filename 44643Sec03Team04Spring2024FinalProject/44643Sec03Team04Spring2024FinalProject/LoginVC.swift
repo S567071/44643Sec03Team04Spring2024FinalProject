@@ -21,9 +21,9 @@ class LoginVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
     
     @IBOutlet weak var messageLBL: UILabel!
     
-    let options = ["Admin", "User"]
+    let options = ["Owner", "User"]
     
-    var selectedOption : String = "Admin"
+    var selectedOption : String = "Owner"
     
     @IBAction func register(_ sender: UIButton) {
         let storyboard = self.storyboard?.instantiateViewController(withIdentifier: "RegisterationVC") as! RegisterationVC
@@ -83,15 +83,15 @@ class LoginVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
     func fetchUserRole(email: String) {
             let db = Firestore.firestore()
             
-            db.collection("users").document(email).getDocument { [weak self] (document, error) in
+            db.collection("User").document(email).getDocument { [weak self] (document, error) in
                 guard let strongSelf = self else { return }
                 
                 if let document = document, document.exists {
-                    if "Admin" == document.data()?["role"] as? String {
+                    if "Owner" == document.data()?["UserType"] as? String {
                         self?.performSegue(withIdentifier: "OwnerHomePage", sender: self)
                         //strongSelf.performSegue(withIdentifier: "loggedInSegue", sender: role)
                     }
-                    else if "User" == document.data()?["role"] as? String{
+                    else if "User" == document.data()?["UserType"] as? String{
                         self?.performSegue(withIdentifier: "userHomePage", sender: self)
                     }
                     else {
