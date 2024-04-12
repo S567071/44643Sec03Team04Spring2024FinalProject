@@ -47,6 +47,7 @@
 		3CA7E2DE2BB3E42000E68398 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CA7E2DD2BB3E42000E68398 /* GoogleService-Info.plist */; };
 		3CE5B1742BC8535400322FBF /* Eureka in Frameworks */ = {isa = PBXBuildFile; productRef = 3CE5B1732BC8535400322FBF /* Eureka */; };
 		3CE5B1762BC8539200322FBF /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE5B1752BC8539200322FBF /* PostVC.swift */; };
+		6CDDCD5E2BC97B6F00894471 /* OwnerHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDDCD5D2BC97B6F00894471 /* OwnerHomeVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		20CB1B8F2B991CB30041FBDD /* RegisterationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationVC.swift; sourceTree = "<group>"; };
 		3CA7E2DD2BB3E42000E68398 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3CE5B1752BC8539200322FBF /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
+		6CDDCD5D2BC97B6F00894471 /* OwnerHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerHomeVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			children = (
 				20BB2A3E2B86E92500AF2548 /* supportfiles */,
 				203410BA2B86CC8100B24B4F /* Main.storyboard */,
+				6CDDCD5D2BC97B6F00894471 /* OwnerHomeVC.swift */,
 				3CE5B1752BC8539200322FBF /* PostVC.swift */,
 				20BB2A3F2B89679700AF2548 /* LoginVC.swift */,
 				204D1FDC2BC45C80001E8E2A /* AuthenticationModel.swift */,
@@ -259,6 +262,7 @@
 				203410B52B86CC8100B24B4F /* AppDelegate.swift in Sources */,
 				203410B72B86CC8100B24B4F /* SceneDelegate.swift in Sources */,
 				204D1FDD2BC45C80001E8E2A /* AuthenticationModel.swift in Sources */,
+				6CDDCD5E2BC97B6F00894471 /* OwnerHomeVC.swift in Sources */,
 				204D1FDF2BC48B60001E8E2A /* ResetPasswordVC.swift in Sources */,
 				20CB1B902B991CB30041FBDD /* RegisterationVC.swift in Sources */,
 				3CE5B1762BC8539200322FBF /* PostVC.swift in Sources */,
