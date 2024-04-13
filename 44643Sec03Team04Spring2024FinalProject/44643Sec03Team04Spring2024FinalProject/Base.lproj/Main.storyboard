@@ -151,6 +151,7 @@
                         <outlet property="password" destination="o90-IG-zqO" id="J74-BW-gwF"/>
                         <outlet property="pickerView" destination="Wv7-Wd-evM" id="iYX-4m-07U"/>
                         <segue destination="kPX-Me-rgD" kind="showDetail" identifier="userHomePage" id="yaL-NT-AId"/>
+                        <segue destination="EMV-08-fIH" kind="show" identifier="OwnerHomePage" id="vyn-rL-bqt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -465,6 +466,139 @@
             </objects>
             <point key="canvasLocation" x="2639" y="1765"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="V5B-Z1-GcL">
+            <objects>
+                <viewController id="Xca-v8-kpg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nFY-GE-5P9">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="tsz-3k-3IA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aGC-1N-0Zk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1282" y="1311"/>
+        </scene>
+        <!--AgriToolRentals-->
+        <scene sceneID="aXl-HE-Puj">
+            <objects>
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="BZ0-AN-Wal" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="N6n-aY-Hw5">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Dashboard" id="fWR-rc-gz1">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="CaK-lo-8DC" imageView="Ps7-Tj-9QS" rowHeight="100" style="IBUITableViewCellStyleDefault" id="Ahe-bX-dae">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ahe-bX-dae" id="7m0-xF-7L9">
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CaK-lo-8DC">
+                                                    <rect key="frame" x="59" y="0.0" width="295.66666666666669" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="homekit" catalog="system" id="Ps7-Tj-9QS">
+                                                    <rect key="frame" x="20" y="39.333333333333336" width="24" height="19.666666666666668"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="dCg-nS-gjh" imageView="8nh-K6-4Rh" rowHeight="100" style="IBUITableViewCellStyleDefault" id="jEc-GC-nt9">
+                                        <rect key="frame" x="0.0" y="150" width="393" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jEc-GC-nt9" id="TyD-Qk-DaK">
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Categories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dCg-nS-gjh">
+                                                    <rect key="frame" x="59" y="0.0" width="295.66666666666669" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="sparkles.rectangle.stack" catalog="system" id="8nh-K6-4Rh">
+                                                    <rect key="frame" x="21.166666666666664" y="39.666666666666664" width="21.666666666666668" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="i3d-ZK-N8B" imageView="oCx-WP-B84" rowHeight="100" style="IBUITableViewCellStyleDefault" id="gQm-Ld-3AE">
+                                        <rect key="frame" x="0.0" y="250" width="393" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gQm-Ld-3AE" id="cKO-xq-rb1">
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i3d-ZK-N8B">
+                                                    <rect key="frame" x="59" y="0.0" width="295.66666666666669" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="person.crop.circle.fill" catalog="system" id="oCx-WP-B84">
+                                                    <rect key="frame" x="22.166666666666668" y="40.666666666666664" width="19.666666666666664" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="BZ0-AN-Wal" id="smn-4W-2rs"/>
+                            <outlet property="delegate" destination="BZ0-AN-Wal" id="0RY-cX-HjA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="AgriToolRentals" id="APb-xf-qoE"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i7H-Bw-wd8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-387" y="706"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wx8-rH-2E4">
+            <objects>
+                <navigationController id="tru-fY-hxl" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="1jV-zh-spe">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="108"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BZ0-AN-Wal" kind="relationship" relationship="rootViewController" id="7Cn-Wu-53u"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ll8-2O-g4v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1282" y="706"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="xyt-lH-rzR">
+            <objects>
+                <splitViewController allowDoubleColumnStyle="YES" primaryBackgroundStyle="sidebar" id="EMV-08-fIH" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="5ZG-w7-UJq"/>
+                    <connections>
+                        <segue destination="tru-fY-hxl" kind="relationship" relationship="masterViewController" id="JV4-Qk-eBD"/>
+                        <segue destination="Xca-v8-kpg" kind="relationship" relationship="detailViewController" id="amS-fk-e9o"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BP4-1e-lPp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2193" y="1009"/>
+        </scene>
         <!--Item-->
         <scene sceneID="4Vu-OV-ilP">
             <objects>
@@ -662,10 +796,12 @@
     <resources>
         <image name="arrow.left.arrow.right" catalog="system" width="120" height="128"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
+        <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="location.north.circle.fill" catalog="system" width="128" height="123"/>
         <image name="logo" width="474" height="474"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="sparkles.rectangle.stack" catalog="system" width="126" height="128"/>
         <image name="text.justify" catalog="system" width="128" height="99"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
