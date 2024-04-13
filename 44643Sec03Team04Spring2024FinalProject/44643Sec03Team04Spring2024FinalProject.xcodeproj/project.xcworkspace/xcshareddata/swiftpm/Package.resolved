@@ -19,15 +19,6 @@
       }
     },
     {
-      "identity" : "eureka",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/xmartlabs/Eureka.git",
-      "state" : {
-        "revision" : "b6e35acf77a5551070afa6248935ec68e71f22af",
-        "version" : "5.4.0"
-      }
-    },
-    {
       "identity" : "firebase-ios-sdk",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/firebase-ios-sdk.git",
@@ -97,15 +88,6 @@
       "state" : {
         "revision" : "43aaef65e0c665daadf848761d560e446d350d3d",
         "version" : "1.22.4"
-      }
-    },
-    {
-      "identity" : "lottie-ios",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/airbnb/lottie-ios.git",
-      "state" : {
-        "revision" : "ab15129d567eda5da0631fcba23de60144a612f4",
-        "version" : "4.4.2"
       }
     },
     {
