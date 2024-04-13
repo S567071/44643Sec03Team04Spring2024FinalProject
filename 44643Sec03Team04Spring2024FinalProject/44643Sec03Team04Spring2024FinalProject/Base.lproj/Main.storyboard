@@ -469,7 +469,7 @@
         <!--Home-->
         <scene sceneID="V5B-Z1-GcL">
             <objects>
-                <viewController id="Xca-v8-kpg" customClass="HomeVC" customModule="_4643Sec03Team04Spring2024FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Xca-v8-kpg" customClass="HomeVC" customModule="_4643Sec03Team04Spring2024FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c5g-zF-gTu">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -514,7 +514,7 @@
         <!--AgriToolRentals-->
         <scene sceneID="aXl-HE-Puj">
             <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="BZ0-AN-Wal" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" clearsSelectionOnViewWillAppear="NO" id="BZ0-AN-Wal" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="N6n-aY-Hw5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -608,7 +608,7 @@
         <!--OwnerVC-->
         <scene sceneID="HdK-KY-aVF">
             <objects>
-                <viewController id="1SD-HQ-OWe" customClass="OwnerVC" customModule="_4643Sec03Team04Spring2024FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="1SD-HQ-OWe" customClass="OwnerVC" customModule="_4643Sec03Team04Spring2024FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oZk-l6-xwp">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -712,7 +712,7 @@
         <!--PostVC-->
         <scene sceneID="bxn-cM-utR">
             <objects>
-                <viewController id="Y0F-Qa-ZsH" customClass="PostVC" customModule="_4643Sec03Team04Spring2024FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Y0F-Qa-ZsH" customClass="PostVC" customModule="_4643Sec03Team04Spring2024FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v1z-zi-9ue">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -880,7 +880,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Wx8-rH-2E4">
             <objects>
-                <navigationController id="tru-fY-hxl" sceneMemberID="viewController">
+                <navigationController modalPresentationStyle="fullScreen" id="tru-fY-hxl" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="1jV-zh-spe">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="108"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -896,7 +896,7 @@
         <!--Split View Controller-->
         <scene sceneID="xyt-lH-rzR">
             <objects>
-                <splitViewController allowDoubleColumnStyle="YES" primaryBackgroundStyle="sidebar" id="EMV-08-fIH" sceneMemberID="viewController">
+                <splitViewController modalPresentationStyle="fullScreen" allowDoubleColumnStyle="YES" primaryBackgroundStyle="sidebar" id="EMV-08-fIH" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="5ZG-w7-UJq"/>
                     <connections>
                         <segue destination="tru-fY-hxl" kind="relationship" relationship="masterViewController" id="JV4-Qk-eBD"/>
@@ -1103,7 +1103,7 @@
         <!--Navigation Controller-->
         <scene sceneID="uZ3-mf-6IV">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j4Y-Y7-g33" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="j4Y-Y7-g33" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eCS-fa-1sh">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
@@ -1121,7 +1121,7 @@
         <!--Navigation Controller-->
         <scene sceneID="w0q-jz-FD4">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7DO-yD-D2F" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="7DO-yD-D2F" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="AWP-C8-hfP">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
