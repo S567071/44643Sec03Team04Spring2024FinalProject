@@ -87,11 +87,11 @@ class LoginVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
                 guard let strongSelf = self else { return }
                 
                 if let document = document, document.exists {
-                    if "Owner" == document.data()?["UserType"] as? String {
+                    if self?.selectedOption == document.data()?["UserType"] as? String {
                         self?.performSegue(withIdentifier: "OwnerHomePage", sender: self)
                         //strongSelf.performSegue(withIdentifier: "loggedInSegue", sender: role)
                     }
-                    else if "User" == document.data()?["UserType"] as? String{
+                    else if self?.selectedOption == document.data()?["UserType"] as? String{
                         self?.performSegue(withIdentifier: "userHomePage", sender: self)
                     }
                     else {
