@@ -89,3 +89,9 @@ Sprint - 05
 Included Tab Bar Controller to develop the User and Vendor pages, To manage booking and orders, to view booking posts.
 resolved some firebase errors, created user collections in firebase, added new page to the project like forget password UI.
 Added segues between the screens to navigate.
+
+Sprint - 06
+
+The ForgetPassword view controller's functionality has been implemented.
+Work on the UI and functionality of the owner home page and user home page has commenced. Merge conflicts have been resolved.
+Adjustments have been made in the register and login view controllers, and they are now fully functional.
