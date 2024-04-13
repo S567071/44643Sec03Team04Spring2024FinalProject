@@ -8,16 +8,16 @@
 import UIKit
 import Firebase
 
-class LoginVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
+class LoginVC: UIViewController{
 
     
     @IBOutlet weak var loginID: UITextField!
     
     @IBOutlet weak var password: UITextField!
     
-    @IBOutlet weak var selectCATEG: UITextField!
+    //@IBOutlet weak var selectCATEG: UITextField!
     
-    @IBOutlet weak var pickerView: UIPickerView!
+    //@IBOutlet weak var pickerView: UIPickerView!
     
     @IBOutlet weak var messageLBL: UILabel!
     
@@ -32,27 +32,27 @@ class LoginVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pickerView.dataSource = self
-        pickerView.delegate = self
+//        pickerView.dataSource = self
+//        pickerView.delegate = self
         // Do any additional setup after loading the view.
     }
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-            return 1
-        }
-
-        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            return options.count
-        }
-
-        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            return options[row]
-        }
-
-        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            selectedOption = options[row]
-            
-        }
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//            return 1
+//        }
+//
+//        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//            return options.count
+//        }
+//
+//        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//            return options[row]
+//        }
+//
+//        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//            selectedOption = options[row]
+//            
+//        }
     
     @IBAction func loginAction(_ sender: UIButton) {
         if loginID.text == "" {
@@ -85,13 +85,14 @@ class LoginVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
             
             db.collection("User").document(email).getDocument { [weak self] (document, error) in
                 guard let strongSelf = self else { return }
+                print("provide role : \(String(describing: self?.selectedOption))")
                 
                 if let document = document, document.exists {
-                    if self?.selectedOption == document.data()?["UserType"] as? String {
+                    print("user roles : \(String(describing: document.data()?["UserType"] as? String))")
+                    if "Owner" == document.data()?["UserType"] as? String {
                         self?.performSegue(withIdentifier: "OwnerHomePage", sender: self)
-                        //strongSelf.performSegue(withIdentifier: "loggedInSegue", sender: role)
                     }
-                    else if self?.selectedOption == document.data()?["UserType"] as? String{
+                    else if "User" == document.data()?["UserType"] as? String{
                         self?.performSegue(withIdentifier: "userHomePage", sender: self)
                     }
                     else {
