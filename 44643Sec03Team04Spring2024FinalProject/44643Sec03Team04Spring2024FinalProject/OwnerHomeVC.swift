@@ -2,20 +2,45 @@
 //  OwnerHomeVC.swift
 //  44643Sec03Team04Spring2024FinalProject
 //
-//  Created by Pranathi Reddy Jeedipally on 3/3/24.
+//  Created by Jeedipalli,Pranathi Reddy on 4/12/24.
 //
 
 import UIKit
 
-class OwnerHomeVC: UIViewController {
+class OwnerHomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var categoryTV: UITableView!
+    
+    let rowTexts = ["🚜         Tractors", "🚜🌾    Harvestors", "🌱🚜    Fertilizer Spreader", "🚜🔧    Others"]
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return rowTexts.count;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "machineCell", for: indexPath)
+                // Configure your cell here
+        cell.textLabel?.text = rowTexts[indexPath.row]
+        cell.accessoryType = .disclosureIndicator
+        return cell
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        categoryTV.dataSource = self
+        categoryTV.delegate = self
+                
+                // Register cell
+        categoryTV.register(UITableViewCell.self, forCellReuseIdentifier: "machineCell")
     }
     
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            performSegue(withIdentifier: "addPage", sender: self)
+        }
     /*
     // MARK: - Navigation
 
