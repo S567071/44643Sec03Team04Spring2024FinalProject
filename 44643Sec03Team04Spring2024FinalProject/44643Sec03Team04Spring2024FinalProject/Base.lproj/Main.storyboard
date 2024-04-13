@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -150,126 +150,12 @@
                         <outlet property="messageLBL" destination="VAu-CE-BOt" id="Kpy-fa-uML"/>
                         <outlet property="password" destination="o90-IG-zqO" id="J74-BW-gwF"/>
                         <outlet property="pickerView" destination="Wv7-Wd-evM" id="iYX-4m-07U"/>
-                        <segue destination="Lwb-mO-llv" kind="showDetail" identifier="OwnerHomePage" id="LO0-er-SPH"/>
                         <segue destination="kPX-Me-rgD" kind="showDetail" identifier="userHomePage" id="yaL-NT-AId"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="975" y="-2"/>
-        </scene>
-        <!--Welcome to Admin Home Screen-->
-        <scene sceneID="KTB-WE-qT7">
-            <objects>
-                <viewController storyboardIdentifier="OwnerHomeVC" modalPresentationStyle="fullScreen" id="zM8-Xd-Vdt" customClass="OwnerHomeVC" customModule="_4643Sec03Team04Spring2024FinalProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="McR-kE-K3B">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MXe-vz-NUh" userLabel="BigContainerSV">
-                                <rect key="frame" x="10" y="10" width="373" height="773"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleAspectFit" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YnL-xM-zAe" userLabel="headerSV">
-                                        <rect key="frame" x="0.0" y="0.0" width="373" height="154.66666666666666"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ZNm-7L-KQ5">
-                                                <rect key="frame" x="0.0" y="0.0" width="121.66666666666667" height="154.66666666666666"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AgriTool Rentals" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vor-w7-eqL">
-                                                <rect key="frame" x="129.66666666666663" y="0.0" width="243.33333333333337" height="154.66666666666666"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="vor-w7-eqL" firstAttribute="width" secondItem="ZNm-7L-KQ5" secondAttribute="width" multiplier="2" id="LDC-4p-Gsv"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yME-mh-pKV" userLabel="imagesSV">
-                                        <rect key="frame" x="0.0" y="162.66666666666663" width="373" height="232"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ate-fR-1h0">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="200.66666666666666"/>
-                                            </imageView>
-                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="f2E-Mk-WlP">
-                                                <rect key="frame" x="0.0" y="208.66666666666666" width="373" height="23.333333333333343"/>
-                                            </pageControl>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="f2E-Mk-WlP" firstAttribute="height" secondItem="yME-mh-pKV" secondAttribute="height" multiplier="0.1" id="hO7-ve-TnC"/>
-                                        </constraints>
-                                    </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJV-Y5-vYo">
-                                        <rect key="frame" x="0.0" y="402.66666666666669" width="373" height="130.33333333333331"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5PS-yl-9BD" userLabel="ButtonsSV">
-                                        <rect key="frame" x="0.0" y="541" width="373" height="232"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hf1-Um-ODw">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="52"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Tractors" cornerStyle="capsule">
-                                                    <backgroundConfiguration key="background">
-                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                                    </backgroundConfiguration>
-                                                </buttonConfiguration>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPC-GX-MuM">
-                                                <rect key="frame" x="0.0" y="60" width="373" height="52"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Harvestors" cornerStyle="capsule">
-                                                    <backgroundConfiguration key="background">
-                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                                    </backgroundConfiguration>
-                                                </buttonConfiguration>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVq-EQ-nrN">
-                                                <rect key="frame" x="0.0" y="120" width="373" height="52"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Seeder" cornerStyle="capsule">
-                                                    <backgroundConfiguration key="background">
-                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                                    </backgroundConfiguration>
-                                                </buttonConfiguration>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l34-9H-nDg">
-                                                <rect key="frame" x="0.0" y="180" width="373" height="52"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="others" cornerStyle="capsule">
-                                                    <backgroundConfiguration key="background">
-                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                                    </backgroundConfiguration>
-                                                </buttonConfiguration>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="yME-mh-pKV" firstAttribute="height" secondItem="MXe-vz-NUh" secondAttribute="height" multiplier="0.3" id="Qdl-BQ-hs4"/>
-                                    <constraint firstItem="YnL-xM-zAe" firstAttribute="height" secondItem="MXe-vz-NUh" secondAttribute="height" multiplier="0.2" id="bSx-9R-pc0"/>
-                                    <constraint firstItem="5PS-yl-9BD" firstAttribute="height" secondItem="MXe-vz-NUh" secondAttribute="height" multiplier="0.3" id="uQb-7S-JFf"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="H2j-k2-Jir"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="H2j-k2-Jir" firstAttribute="trailing" secondItem="MXe-vz-NUh" secondAttribute="trailing" constant="10" id="GEf-n8-kQE"/>
-                            <constraint firstItem="MXe-vz-NUh" firstAttribute="leading" secondItem="H2j-k2-Jir" secondAttribute="leading" constant="10" id="ImQ-A9-0t5"/>
-                            <constraint firstItem="H2j-k2-Jir" firstAttribute="bottom" secondItem="MXe-vz-NUh" secondAttribute="bottom" constant="10" id="JQl-Cz-gcx"/>
-                            <constraint firstItem="MXe-vz-NUh" firstAttribute="top" secondItem="H2j-k2-Jir" secondAttribute="top" constant="10" id="buB-I4-Hfj"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="home" image="homekit" catalog="system" id="ayO-5v-hOj"/>
-                    <navigationItem key="navigationItem" title="Welcome to Admin Home Screen" id="1S7-K6-B79"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aNS-2O-ji4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1893.8931297709923" y="731.69014084507046"/>
         </scene>
         <!--RegisterationVC-->
         <scene sceneID="q5g-Xd-OlZ">
@@ -772,30 +658,10 @@
             </objects>
             <point key="canvasLocation" x="4921.3740458015263" y="760.56338028169023"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="wQk-Xc-04b">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="Lwb-mO-llv" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="mFl-T7-5lQ"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3Xg-ss-1Cy">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="zM8-Xd-Vdt" kind="relationship" relationship="viewControllers" id="DgZ-Sf-HWe"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AXb-Cq-zvT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="967.17557251908397" y="731.69014084507046"/>
-        </scene>
     </scenes>
     <resources>
         <image name="arrow.left.arrow.right" catalog="system" width="120" height="128"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
-        <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="location.north.circle.fill" catalog="system" width="128" height="123"/>
         <image name="logo" width="474" height="474"/>
