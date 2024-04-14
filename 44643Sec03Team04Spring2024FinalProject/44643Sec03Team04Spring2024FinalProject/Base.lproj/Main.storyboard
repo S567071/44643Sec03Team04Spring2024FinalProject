@@ -149,7 +149,6 @@
                         <outlet property="loginID" destination="KEd-Ci-PWX" id="j9T-Kd-3Oc"/>
                         <outlet property="messageLBL" destination="VAu-CE-BOt" id="Kpy-fa-uML"/>
                         <outlet property="password" destination="o90-IG-zqO" id="J74-BW-gwF"/>
-                        <outlet property="pickerView" destination="Wv7-Wd-evM" id="iYX-4m-07U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

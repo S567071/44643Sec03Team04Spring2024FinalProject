@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class LoginVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
+class LoginVC: UIViewController {
 
     
     @IBOutlet weak var loginID: UITextField!
