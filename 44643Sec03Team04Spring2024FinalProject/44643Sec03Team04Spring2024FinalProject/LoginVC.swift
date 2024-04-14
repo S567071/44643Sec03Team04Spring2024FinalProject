@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class LoginVC: UIViewController{
+class LoginVC: UIViewController {
 
     
     @IBOutlet weak var loginID: UITextField!
@@ -24,6 +24,7 @@ class LoginVC: UIViewController{
     let options = ["Owner", "User"]
     
     var selectedOption : String = "Owner"
+    var username = ""
     
     @IBAction func register(_ sender: UIButton) {
         let storyboard = self.storyboard?.instantiateViewController(withIdentifier: "RegisterationVC") as! RegisterationVC
@@ -62,10 +63,13 @@ class LoginVC: UIViewController{
             
             messageLBL.text = "Please enter Password!"
         }else {
+            self.username = self.loginID.text!
             Task {
                 await loginUser(email: loginID.text!, password: password.text!)
             }
         }
+        
+        
         
     }
     
@@ -79,29 +83,30 @@ class LoginVC: UIViewController{
             self.messageLBL.text = "Invalid Login Credentials! Please try again."
         }
     }
-   
+    
     func fetchUserRole(email: String) {
             let db = Firestore.firestore()
-            
+        AppDelegate.username = loginID.text!
             db.collection("User").document(email).getDocument { [weak self] (document, error) in
                 guard let strongSelf = self else { return }
-                print("provide role : \(String(describing: self?.selectedOption))")
-                
                 if let document = document, document.exists {
-                    print("user roles : \(String(describing: document.data()?["UserType"] as? String))")
-                    if "Owner" == document.data()?["UserType"] as? String {
-                        self?.performSegue(withIdentifier: "OwnerHomePage", sender: self)
-                    }
-                    else if "User" == document.data()?["UserType"] as? String{
-                        self?.performSegue(withIdentifier: "userHomePage", sender: self)
-                    }
-                    else {
-                        strongSelf.messageLBL.text = "User role not found"
+                    if let userType = document.data()?["UserType"] as? String {
+                        if self?.selectedOption == userType, self?.selectedOption == "Owner" {
+                            let splitViewController = self?.storyboard?.instantiateViewController(withIdentifier: "ownerRootPage") as? UISplitViewController
+                            self?.view.window?.rootViewController = splitViewController
+                            self?.view.window?.makeKeyAndVisible()
+                        } else if self?.selectedOption == userType, self?.selectedOption == "User" {
+                            let tapbarController = self?.storyboard?.instantiateViewController(withIdentifier: "userRootPage") as? UITabBarController
+                            self?.view.window?.rootViewController = tapbarController
+                            self?.view.window?.makeKeyAndVisible()
+                        }
+                    } else {
+                        strongSelf.messageLBL.text = "User type not found"
                     }
                 } else {
                     strongSelf.messageLBL.text = "User document not found"
                 }
             }
-        }
 
+        }
 }

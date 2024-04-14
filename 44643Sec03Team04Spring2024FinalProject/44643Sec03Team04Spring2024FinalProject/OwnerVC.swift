@@ -8,12 +8,14 @@
 import UIKit
 
 class OwnerVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
-    
+    var userEmail: String?
+   
     @IBOutlet weak var categoryTV: UITableView!
     
     let rowTexts = ["🚜         Tractors", "🚜🌾    Harvestors", "🌱🚜    Fertilizer Spreader", "🚜🔧    Others"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("userEmail:\(String(describing: userEmail))")
         return rowTexts.count;
     }
     
