@@ -22,6 +22,7 @@
 		20CB1B9B2B993E6E0041FBDD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 20CB1B9A2B993E6E0041FBDD /* FirebaseFirestore */; };
 		20CB1B9D2B993E6E0041FBDD /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 20CB1B9C2B993E6E0041FBDD /* FirebaseFirestoreSwift */; };
 		395CBACC2B9BD86C0088E011 /* List Add pageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395CBACB2B9BD86C0088E011 /* List Add pageVC.swift */; };
+		39FA82222BCC77AF00C29071 /* UserHomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA82212BCC77AF00C29071 /* UserHomePageVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		20CB1B8F2B991CB30041FBDD /* RegisterationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationVC.swift; sourceTree = "<group>"; };
 		20CB1B912B993D320041FBDD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		395CBACB2B9BD86C0088E011 /* List Add pageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List Add pageVC.swift"; sourceTree = "<group>"; };
+		39FA82212BCC77AF00C29071 /* UserHomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomePageVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			children = (
 				20BB2A3E2B86E92500AF2548 /* supportfiles */,
 				203410BA2B86CC8100B24B4F /* Main.storyboard */,
+				39FA82212BCC77AF00C29071 /* UserHomePageVC.swift */,
 				20CB1B912B993D320041FBDD /* GoogleService-Info.plist */,
 				20BB2A3F2B89679700AF2548 /* LoginVC.swift */,
 				20CB1B8F2B991CB30041FBDD /* RegisterationVC.swift */,
@@ -181,6 +184,7 @@
 			files = (
 				203410B92B86CC8100B24B4F /* ViewController.swift in Sources */,
 				395CBACC2B9BD86C0088E011 /* List Add pageVC.swift in Sources */,
+				39FA82222BCC77AF00C29071 /* UserHomePageVC.swift in Sources */,
 				203410B52B86CC8100B24B4F /* AppDelegate.swift in Sources */,
 				203410B72B86CC8100B24B4F /* SceneDelegate.swift in Sources */,
 				20CB1B902B991CB30041FBDD /* RegisterationVC.swift in Sources */,
