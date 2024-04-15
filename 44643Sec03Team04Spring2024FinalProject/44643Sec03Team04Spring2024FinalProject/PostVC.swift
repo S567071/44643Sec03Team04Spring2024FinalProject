@@ -200,7 +200,7 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                 
                 let data: [String: Any] = [
                     "Location": location,
-                    "Address Details": address,
+                    "Details": address,
                     "Price": "$\(price)",
                     "Pickup Date": pickupDate,
                     "Dropoff Date": dropoffDate,
@@ -251,4 +251,5 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                 }
             }
         }
+    
 }
