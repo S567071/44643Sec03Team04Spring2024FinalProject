@@ -45,6 +45,7 @@
 		39FA821C2BCB398800C29071 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 39FA821B2BCB398800C29071 /* FirebaseRemoteConfigSwift */; };
 		39FA821E2BCB398800C29071 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 39FA821D2BCB398800C29071 /* FirebaseStorage */; };
 		39FA82202BCB398800C29071 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 39FA821F2BCB398800C29071 /* FirebaseStorageCombine-Community */; };
+		3C0837F22BCCEE4700C04BE7 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0837F12BCCEE4700C04BE7 /* AccountVC.swift */; };
 		3CA7E2DE2BB3E42000E68398 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CA7E2DD2BB3E42000E68398 /* GoogleService-Info.plist */; };
 		3CE5B17E2BCA255000322FBF /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3CE5B17D2BCA255000322FBF /* Lottie */; };
 		3CE5B1802BCA271600322FBF /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE5B17F2BCA271600322FBF /* HomeVC.swift */; };
@@ -66,6 +67,7 @@
 		204D1FDE2BC48B60001E8E2A /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		20BB2A3F2B89679700AF2548 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		20CB1B8F2B991CB30041FBDD /* RegisterationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationVC.swift; sourceTree = "<group>"; };
+		3C0837F12BCCEE4700C04BE7 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 		3CA7E2DD2BB3E42000E68398 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3CE5B17F2BCA271600322FBF /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		3CE5B1812BCA273C00322FBF /* OwnerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerVC.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			children = (
 				20BB2A3E2B86E92500AF2548 /* supportfiles */,
 				203410BA2B86CC8100B24B4F /* Main.storyboard */,
+				3C0837F12BCCEE4700C04BE7 /* AccountVC.swift */,
 				3CE5B1832BCA275200322FBF /* PostVC.swift */,
 				3CE5B1812BCA273C00322FBF /* OwnerVC.swift */,
 				3CE5B17F2BCA271600322FBF /* HomeVC.swift */,
@@ -272,6 +275,7 @@
 				204D1FDF2BC48B60001E8E2A /* ResetPasswordVC.swift in Sources */,
 				3CE5B1822BCA273C00322FBF /* OwnerVC.swift in Sources */,
 				07BAEEF22BB71CCD00A29D39 /* UserBookingVC.swift in Sources */,
+				3C0837F22BCCEE4700C04BE7 /* AccountVC.swift in Sources */,
 				20CB1B902B991CB30041FBDD /* RegisterationVC.swift in Sources */,
 				20BB2A402B89679700AF2548 /* LoginVC.swift in Sources */,
 				3CE5B1842BCA275200322FBF /* PostVC.swift in Sources */,
