@@ -12,6 +12,7 @@ class HomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("username: \(AppDelegate.username)")
 
         // Do any additional setup after loading the view.
     }
