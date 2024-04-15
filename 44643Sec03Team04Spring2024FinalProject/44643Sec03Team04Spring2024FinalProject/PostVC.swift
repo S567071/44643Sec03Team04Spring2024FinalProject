@@ -9,11 +9,12 @@ import UIKit
 import Firebase
 import FirebaseStorage
 import FirebaseAuth
+import CoreLocation
 
-class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
     
     let datepicker = UIDatePicker()
-    
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,17 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         dropoff()
         
         // Do any additional setup after loading the view.
+        // Request location authorization
+              
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
     }
     
     @IBOutlet weak var locationLBL: UITextField!
@@ -154,8 +166,54 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
             }
         }
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            guard let location = locations.first else { return }
+            
+            // Fetch location information
+        fetchLocationInformation(for: location.coordinate)
+            
+            // Stop updating location to conserve battery
+            locationManager.stopUpdatingLocation()
+    }
+    
+//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//        switch status {
+//        case .authorizedWhenInUse, .authorizedAlways:
+//            locationManager.startUpdatingLocation()
+//        case .denied, .restricted:
+//            print("Location access denied")
+//            // Handle denied or restricted access
+//        case .notDetermined:
+//            print("Location authorization not determined")
+//            // Prompt the user to grant location access
+//            locationManager.requestWhenInUseAuthorization()
+//        @unknown default:
+//            break
+//        }
+//    }
 
-
-
-
+        
+        // Function to fetch location information
+       func fetchLocationInformation(for coordinate: CLLocationCoordinate2D) {
+            let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            CLGeocoder().reverseGeocodeLocation(location) { [weak self] placemarks, error in
+                guard let self = self else { return }
+                guard let placemark = placemarks?.first, error == nil else {
+                    print("Reverse geocoding failed with error: \(error?.localizedDescription ?? "")")
+                    return
+                }
+                
+                // Extract location details
+                let address = placemark.name ?? ""
+                let city = placemark.locality ?? ""
+                let state = placemark.administrativeArea ?? ""
+                let country = placemark.country ?? ""
+                
+                // Update UI elements with location information
+                DispatchQueue.main.async {
+                    self.locationLBL.text = "\(address), \(city), \(state), \(country)"
+                }
+            }
+        }
 }
