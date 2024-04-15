@@ -9,18 +9,46 @@ import UIKit
 import Firebase
 import FirebaseStorage
 import FirebaseAuth
+import CoreLocation
 
-class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
+    
+    var categoryType: String?
     
     let datepicker = UIDatePicker()
-    
+    let locationManager = CLLocationManager()
+    let storageRef = Storage.storage().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         pickup()
         dropoff()
+        switch(categoryType) {
+            
+        case "🚜         Tractors":
+            HeaderLBL.text = "Tractor"
+        case "🚜🌾    Harvestors":
+            HeaderLBL.text = "Harvestor"
+        case "🌱🚜    Fertilizer Spreader":
+            HeaderLBL.text = "Fertilizer Spreader"
+        case "🚜🔧    Others":
+            HeaderLBL.text = "Others"
+        default:
+            break
+        }
         
         // Do any additional setup after loading the view.
+
+              
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
     }
     
     @IBOutlet weak var locationLBL: UITextField!
@@ -96,8 +124,8 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     @IBAction func post(_ sender: UIButton) {
         let username = AppDelegate.username
         print(username)
-        guard ImageIV.image != nil else {
-            return messageLBL.text  =    "Please select an image"
+        guard let image = ImageIV.image else {
+                    return messageLBL.text = "Please select an image"
         }
         guard let pickup = pickupDate.text, !pickup.isEmpty else {
             return messageLBL.text = "Select Pickup Date!"
@@ -117,45 +145,110 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
             return messageLBL.text = "Enter the address details!"
         }
         messageLBL.text = nil
-        let data: [String: Any] = [
-                "Location": self.locationLBL.text!,
-                "Address Details": self.detailsLBL.text!,
-                "Price": "$\(self.priceLBL.text!)",
-                "Pickup Date": self.pickupDate.text!,
-                "Dropoff Date": self.dropoffDate.text!
-                
-                // Add other fields as needed
-            ]
-        savePostToFirestore(data: data, userEmail: AppDelegate.username)
-        
-        let alert = UIAlertController(title: "Thank you!", message: "Your order has been posted successfully!😀", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
+        uploadImageAndSavePost(image: image, pickupDate: pickup, dropoffDate: dropoff, price: price, location: location, address: address)
         
     }
     
     @IBAction func cancelBTN(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "showCategoryHome", sender: self)
+    }
+        
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            print("locations = \(locations)")
+            guard let location = locations.first else { return }
+           fetchLocationInformation(for: location.coordinate)
+            locationManager.stopUpdatingLocation()
     }
     
-    func savePostToFirestore(data: [String: Any], userEmail: String) {
-        // Reference to the User collection
-        let userCollectionRef = Firestore.firestore().collection("User")
-        
-        // Reference to the document under the User collection with the logged-in user's email as the document ID
-        let userDocRef = userCollectionRef.document(userEmail)
-        
-        // Update the document with the provided data
-        userDocRef.updateData(data) { error in
-            if let error = error {
-                print("Error saving post: \(error.localizedDescription)")
-            } else {
-                print("Post saved successfully!")
+//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//        switch status {
+//        case .authorizedWhenInUse, .authorizedAlways:
+//            locationManager.startUpdatingLocation()
+//        case .denied, .restricted:
+//            print("Location access denied")
+//            // Handle denied or restricted access
+//        case .notDetermined:
+//            print("Location authorization not determined")
+//            // Prompt the user to grant location access
+//            locationManager.requestWhenInUseAuthorization()
+//        @unknown default:
+//            break
+//        }
+//    }
+
+       func fetchLocationInformation(for coordinate: CLLocationCoordinate2D) {
+            let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            CLGeocoder().reverseGeocodeLocation(location) { [weak self] placemarks, error in
+                guard let self = self else { return }
+                guard let placemark = placemarks?.first, error == nil else {
+                    print("Reverse geocoding failed with error: \(error?.localizedDescription ?? "")")
+                    return
+                }
+                let address = placemark.name ?? ""
+                let city = placemark.locality ?? ""
+                let state = placemark.administrativeArea ?? ""
+                let country = placemark.country ?? ""
+                
+                DispatchQueue.main.async {
+                    self.locationLBL.text = "\(address), \(city), \(state), \(country)"
+                }
             }
         }
-    }
+    func uploadImageAndSavePost(image: UIImage, pickupDate: String, dropoffDate: String, price: String, location: String, address: String) {
+            
+        uploadImage(image) { [self] imageUrl in
+                
+                let data: [String: Any] = [
+                    "Location": location,
+                    "Address Details": address,
+                    "Price": "$\(price)",
+                    "Pickup Date": pickupDate,
+                    "Dropoff Date": dropoffDate,
+                    "ImageURL": imageUrl,
+                    "Header": HeaderLBL.text!
+                ]
+                self.savePostToFirestore(data: data)
+            }
+        }
+    func uploadImage(_ image: UIImage, completion: @escaping (String) -> Void) {
+            guard let imageData = image.jpegData(compressionQuality: 0.5) else {
+                print("Failed to convert image to data")
+                return
+            }
+            let imageName = UUID().uuidString
+            let imageRef = storageRef.child("images/\(imageName).jpg")
+            imageRef.putData(imageData, metadata: nil) { (metadata, error) in
+                if let error = error {
+                    print("Error uploading image: \(error.localizedDescription)")
+                    return
+                }
+                imageRef.downloadURL { (url, error) in
+                    if let imageUrl = url?.absoluteString {
+                        completion(imageUrl)
+                    } else {
+                        print("Failed to get download URL for image")
+                    }
+                }
+            }
+        }
 
-
-
-
+        func savePostToFirestore(data: [String: Any]) {
+            let userCollectionRef = Firestore.firestore().collection("User")
+            let userDocRef = userCollectionRef.document(AppDelegate.username)
+            userDocRef.updateData(data) { error in
+                if let error = error {
+                    print("Error saving post: \(error.localizedDescription)")
+                } else {
+                    print("Post saved successfully!")
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Thank you!", message: "Your order has been posted successfully!😀", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                            self.performSegue(withIdentifier: "showCategoryHome", sender: self)
+                        }
+                        alert.addAction(okAction)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+            }
+        }
 }
