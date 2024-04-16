@@ -92,11 +92,12 @@ class LoginVC: UIViewController {
                 guard let strongSelf = self else { return }
                 if let document = document, document.exists {
                     if let userType = document.data()?["UserType"] as? String {
-                        if self?.selectedOption == userType, self?.selectedOption == "Owner" {
+                        print("UserType \(userType)")
+                        if userType == "Owner" {
                             let splitViewController = self?.storyboard?.instantiateViewController(withIdentifier: "ownerRootPage") as? UISplitViewController
                             self?.view.window?.rootViewController = splitViewController
                             self?.view.window?.makeKeyAndVisible()
-                        } else if self?.selectedOption == userType, self?.selectedOption == "User" {
+                        } else if userType == "User" {
                             let tapbarController = self?.storyboard?.instantiateViewController(withIdentifier: "userRootPage") as? UITabBarController
                             self?.view.window?.rootViewController = tapbarController
                             self?.view.window?.makeKeyAndVisible()
