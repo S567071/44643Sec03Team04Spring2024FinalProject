@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 class AccountVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -95,4 +96,15 @@ class AccountVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let segueAction = UIContextualAction(style: .normal, title: "Update") { [weak self] (action, view, completionHandler) in
+            self?.performSegue(withIdentifier: "showModify", sender: indexPath)
+            completionHandler(true)
+        }
+        segueAction.backgroundColor = .green
+
+        let swipeConfig = UISwipeActionsConfiguration(actions: [segueAction])
+        swipeConfig.performsFirstActionWithFullSwipe = false
+        return swipeConfig
+    }
 }
