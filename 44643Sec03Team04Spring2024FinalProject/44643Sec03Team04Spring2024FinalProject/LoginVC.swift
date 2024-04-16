@@ -98,8 +98,9 @@ class LoginVC: UIViewController {
                             self?.view.window?.rootViewController = splitViewController
                             self?.view.window?.makeKeyAndVisible()
                         } else if userType == "User" {
-                            let tapbarController = self?.storyboard?.instantiateViewController(withIdentifier: "userRootPage") as? UITabBarController
-                            self?.view.window?.rootViewController = tapbarController
+                            let userViewController = self?.storyboard?.instantiateViewController(withIdentifier: "userRootPage") as? UIViewController
+                            
+                            self?.view.window?.rootViewController = userViewController
                             self?.view.window?.makeKeyAndVisible()
                         }
                     } else {
