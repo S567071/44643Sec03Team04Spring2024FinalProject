@@ -197,7 +197,7 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
             }
         }
     func uploadImageAndSavePost(image: UIImage, pickupDate: String, dropoffDate: String, price: String, location: String, address: String) {
-            
+            let IsBooked = false
         uploadImage(image) { [self] imageUrl in
                 
                 let data: [String: Any] = [
@@ -207,7 +207,8 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                     "Pickup Date": pickupDate,
                     "Dropoff Date": dropoffDate,
                     "ImageURL": imageUrl,
-                    "Header": HeaderLBL.text!
+                    "Header": HeaderLBL.text!,
+                    "Isbooked": IsBooked
                 ]
                 self.savePostToFirestore(data: data)
             }
