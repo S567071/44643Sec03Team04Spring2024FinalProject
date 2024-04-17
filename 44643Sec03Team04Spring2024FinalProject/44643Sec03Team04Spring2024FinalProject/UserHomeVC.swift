@@ -60,7 +60,7 @@ class UserHomeVC: UIViewController {
 
         // Update UI elements with user data
         if let firstName = userData["FirstName"] as? String{
-            self.userLBL.text = "Hi!\(firstName)"
+            self.userLBL.text = "Hi...\(firstName)!"
         } else {
             print("First name  is nil.")
         }

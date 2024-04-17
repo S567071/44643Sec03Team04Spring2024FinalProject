@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -26,19 +26,19 @@
                     <rect key="frame" x="5" y="59" width="383" height="759"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="truck.box.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5sn-4x-0Ec">
-                            <rect key="frame" x="0.0" y="0.66666666666668561" width="383" height="530.66666666666674"/>
+                            <rect key="frame" x="0.0" y="0.66666666666665719" width="383" height="454.66666666666652"/>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2n9-3w-aGE" userLabel="ProductDetailsSV">
-                            <rect key="frame" x="0.0" y="539.33333333333337" width="383" height="219.66666666666663"/>
+                            <rect key="frame" x="0.0" y="463.33333333333337" width="383" height="295.66666666666663"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUk-01-d1T">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="105.66666666666667"/>
-                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="144"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbQ-Kt-GmX">
-                                    <rect key="frame" x="0.0" y="113.66666666666663" width="383" height="106"/>
+                                    <rect key="frame" x="0.0" y="152" width="383" height="143.66666666666663"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -47,7 +47,7 @@
                         </stackView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="5sn-4x-0Ec" firstAttribute="height" secondItem="mtz-FV-tNE" secondAttribute="height" multiplier="0.7" id="O7W-Ao-y0H"/>
+                        <constraint firstItem="5sn-4x-0Ec" firstAttribute="height" secondItem="mtz-FV-tNE" secondAttribute="height" multiplier="0.6" id="O7W-Ao-y0H"/>
                     </constraints>
                 </stackView>
             </subviews>

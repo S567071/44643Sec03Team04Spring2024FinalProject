@@ -20,8 +20,6 @@ class ProductDetailsVC: UIViewController {
     
     @IBOutlet weak var PriceLBL: UILabel!
     
-    @IBOutlet weak var DescriptionTV: UITextView!
-    
     @IBOutlet weak var messageLBL: UILabel!
     
     @IBOutlet weak var FromDateTF: UITextField!
@@ -39,9 +37,9 @@ class ProductDetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       // self.navigationItem.title = selectedProdcut?.Header ?? ""
-        titleLBL.text = selectedProdcut?.Header
-        DescriptionTV.text = selectedProdcut?.Details
+        self.navigationItem.title = selectedProdcut?.Header ?? ""
+        
+        messageLBL.text = selectedProdcut?.Details
         
         images = selectedProdcut?.ImageURL
         
@@ -90,7 +88,7 @@ class ProductDetailsVC: UIViewController {
 //        {
 //            return messageLBL.text = "Enter the location details!"
 //        }
-        guard let address = DescriptionTV.text , !address.isEmpty else {
+        guard let address = messageLBL.text , !address.isEmpty else {
             return messageLBL.text = "Enter the address details!"
         }
         messageLBL.text = nil
