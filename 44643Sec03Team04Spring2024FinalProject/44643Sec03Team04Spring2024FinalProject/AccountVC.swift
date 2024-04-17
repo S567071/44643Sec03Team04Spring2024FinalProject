@@ -33,7 +33,10 @@ class AccountVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     @IBAction func logout(_ sender: UIButton) {
- 
+    
+        let userViewController = self.storyboard?.instantiateViewController(withIdentifier: "loginPage") as? UIViewController
+        self.view.window?.rootViewController = userViewController
+        self.view.window?.makeKeyAndVisible()
     }
     
     func fetchUserData() {
@@ -76,8 +79,6 @@ class AccountVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 //        } else {
 //            print("Phone number is nil.")
 //        }
-
-        // You can further update other UI elements as needed
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -87,10 +88,8 @@ class AccountVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = dataTV.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath)
         guard let userData = self.userData else {
-                    return cell // Return an empty cell if user data is nil
+                    return cell
                 }
-                
-                // Populate the cell with user data
         cell.textLabel?.text = userData["Header"] as? String
         cell.detailTextLabel?.text = userData["Price"] as? String
         return cell

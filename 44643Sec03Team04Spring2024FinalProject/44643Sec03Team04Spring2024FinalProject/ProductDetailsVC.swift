@@ -16,8 +16,7 @@ class ProductDetailsVC: UIViewController {
     
     @IBOutlet weak var PriceLBL: UILabel!
     
-    @IBOutlet weak var DescriptionTV: UITextView!
-    
+    @IBOutlet weak var messageLBL: UILabel!
     
     @IBOutlet weak var FromDateTF: UITextField!
     
@@ -33,7 +32,7 @@ class ProductDetailsVC: UIViewController {
         
         self.navigationItem.title = selectedProdcut?.Header ?? ""
         
-        DescriptionTV.text = selectedProdcut?.Details
+        messageLBL.text = selectedProdcut?.Details
         
         images = selectedProdcut?.ImageURL
         
