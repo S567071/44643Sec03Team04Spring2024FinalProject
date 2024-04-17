@@ -88,7 +88,7 @@ class ProductDetailsVC: UIViewController {
 //        {
 //            return messageLBL.text = "Enter the location details!"
 //        }
-        guard let address = DescriptionTV.text , !address.isEmpty else {
+        guard let address = messageLBL.text , !address.isEmpty else {
             return messageLBL.text = "Enter the address details!"
         }
         messageLBL.text = nil
