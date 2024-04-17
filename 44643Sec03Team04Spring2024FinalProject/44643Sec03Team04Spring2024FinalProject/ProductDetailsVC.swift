@@ -63,8 +63,10 @@ class ProductDetailsVC: UIViewController {
         PriceLBL.text = String(format: "$%0.2f", price)
         print("Price\(price)")
         FromDateTF.text = selectedProdcut?.Pickup_Date
+        print("FromDate\(price)")
         ToDateTF.text = selectedProdcut?.Dropoff_Date
- 
+        print("ToDate\(price)")
+
     }
     
     @IBAction func BuyProduct(_ sender: Any) {
@@ -80,9 +82,10 @@ class ProductDetailsVC: UIViewController {
         {
             return messageLBL.text = "Select Dropoff Date!"
         }
-        guard let price = PriceLBL.text, !price.isEmpty , let _ = Int(price) else{
-            return messageLBL.text =  "Enter price details and check given data is correct!"
-        }
+        guard let price = PriceLBL.text else { return messageLBL.text =  "Enter price details and check given data is correct!" }
+//                , !price.isEmpty , let _ = Int(price) else{
+//            return messageLBL.text =  "Enter price details and check given data is correct!"
+//        }
 //        guard let location = locationLBL.text , !location.isEmpty else
 //        {
 //            return messageLBL.text = "Enter the location details!"
@@ -132,7 +135,7 @@ class ProductDetailsVC: UIViewController {
             }
         }
     func savePostToFirestore(data: [String: Any]) {
-        let userCollectionRef = Firestore.firestore().collection("Cart")
+        let userCollectionRef = Firestore.firestore().collection("User")
         let userDocRef = userCollectionRef.document(AppDelegate.username)
         userDocRef.updateData(data) { error in
             if let error = error {
@@ -140,9 +143,9 @@ class ProductDetailsVC: UIViewController {
             } else {
                 print("Post saved successfully!")
                 DispatchQueue.main.async {
-                    let alert = UIAlertController(title: "Thank you!", message: "Your order has been placed!😀", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Thank you!", message: "Your order has been Placed Successfully!😀", preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-                        self.performSegue(withIdentifier: "showCategoryHome", sender: self)
+                        self.performSegue(withIdentifier: "ToUserPage", sender: self)
                     }
                     alert.addAction(okAction)
                     self.present(alert, animated: true, completion: nil)
@@ -152,7 +155,7 @@ class ProductDetailsVC: UIViewController {
     }
     
     @IBAction func CancleAction(_ sender: Any) {
-        
+        self.performSegue(withIdentifier: "ToUserPage", sender: self)
     }
    
 
