@@ -80,9 +80,10 @@ class ProductDetailsVC: UIViewController {
         {
             return messageLBL.text = "Select Dropoff Date!"
         }
-        guard let priceString = PriceLBL.text, !priceString.isEmpty, let price = Double(priceString) else {
-               return messageLBL.text = "Enter a valid price!"
-           }
+//        guard let priceString = PriceLBL.text, !priceString.isEmpty, let price = Double(priceString) else {
+//               return messageLBL.text = "Enter a valid price!"
+//           }
+        let price = selectedProdcut?.Price ?? 0
         guard let address = messageLBL.text , !address.isEmpty else {
             return messageLBL.text = "Enter the address details!"
         }
@@ -128,10 +129,17 @@ class ProductDetailsVC: UIViewController {
     func savePostToFirestore(data: [String: Any]) {
         let userCollectionRef = Firestore.firestore().collection("User")
         let userDocRef = userCollectionRef.document(AppDelegate.username)
+        let productRef = userCollectionRef.document(selectedProductKey)
+        let IsBooked = true
+        let prodData: [String: Any] = [
+            "Isbooked": IsBooked
+        ]
+        print("product Key : \(selectedProductKey)")
         userDocRef.updateData(data) { error in
             if let error = error {
                 print("Error saving post: \(error.localizedDescription)")
             } else {
+                productRef.updateData(prodData)
                 print("Post saved successfully!")
                 DispatchQueue.main.async {
                     let alert = UIAlertController(title: "Thank you!", message: "Your order has been Placed Successfully!😀", preferredStyle: .alert)
