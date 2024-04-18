@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 class LoginVC: UIViewController {
 
@@ -14,10 +15,6 @@ class LoginVC: UIViewController {
     @IBOutlet weak var loginID: UITextField!
     
     @IBOutlet weak var password: UITextField!
-    
-    //@IBOutlet weak var selectCATEG: UITextField!
-    
-    //@IBOutlet weak var pickerView: UIPickerView!
     
     @IBOutlet weak var messageLBL: UILabel!
     
@@ -33,27 +30,7 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        pickerView.dataSource = self
-//        pickerView.delegate = self
-        // Do any additional setup after loading the view.
     }
-    
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//            return 1
-//        }
-//
-//        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//            return options.count
-//        }
-//
-//        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//            return options[row]
-//        }
-//
-//        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//            selectedOption = options[row]
-//            
-//        }
     
     @IBAction func loginAction(_ sender: UIButton) {
         if loginID.text == "" {
@@ -91,13 +68,15 @@ class LoginVC: UIViewController {
                 guard let strongSelf = self else { return }
                 if let document = document, document.exists {
                     if let userType = document.data()?["UserType"] as? String {
-                        if self?.selectedOption == userType, self?.selectedOption == "Owner" {
+                        print("UserType \(userType)")
+                        if userType == "Owner" {
                             let splitViewController = self?.storyboard?.instantiateViewController(withIdentifier: "ownerRootPage") as? UISplitViewController
                             self?.view.window?.rootViewController = splitViewController
                             self?.view.window?.makeKeyAndVisible()
-                        } else if self?.selectedOption == userType, self?.selectedOption == "User" {
-                            let tapbarController = self?.storyboard?.instantiateViewController(withIdentifier: "userRootPage") as? UITabBarController
-                            self?.view.window?.rootViewController = tapbarController
+                        } else if userType == "User" {
+                            let userViewController = self?.storyboard?.instantiateViewController(withIdentifier: "userRootPage") as? UIViewController
+                            
+                            self?.view.window?.rootViewController = userViewController
                             self?.view.window?.makeKeyAndVisible()
                         }
                     } else {

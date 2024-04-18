@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FirebaseStorage
 import FirebaseAuth
+import FirebaseFirestore
 import CoreLocation
 
 class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
@@ -85,11 +86,24 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     func pickup() {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneClicked))
-        toolbar.setItems([done], animated: true)
+        toolbar.setItems([flexibleSpace, done], animated: true)
         pickupDate.inputAccessoryView = toolbar
-        pickupDate.inputView  = datepicker
+        let pickerHeight: CGFloat = 200
+        datepicker.frame = CGRect(x: 0, y: UIScreen.main.bounds.height - pickerHeight, width: UIScreen.main.bounds.width, height: pickerHeight)
+        pickupDate.inputView = datepicker
+        datepicker.datePickerMode = .date
+    }
+    func dropoff() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneClick))
+        toolbar.setItems([flexibleSpace, done], animated: true)
         dropoffDate.inputAccessoryView = toolbar
+        let pickerHeight: CGFloat = 200
+        datepicker.frame = CGRect(x: 0, y: UIScreen.main.bounds.height - pickerHeight, width: UIScreen.main.bounds.width, height: pickerHeight)
         dropoffDate.inputView = datepicker
         datepicker.datePickerMode = .date
     }
@@ -98,7 +112,6 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         format.dateStyle = .medium
         format.timeStyle = .none
         pickupDate.text = format.string(from: datepicker.date)
-        dropoffDate.text = format.string(from: datepicker.date)
         self.view.endEditing(true)
         
     }
@@ -110,17 +123,6 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         self.view.endEditing(true)
         
     }
-    
-    func dropoff() {
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneClick))
-        toolbar.setItems([done], animated: true)
-        dropoffDate.inputAccessoryView = toolbar
-        dropoffDate.inputView = datepicker
-        datepicker.datePickerMode = .date
-    }
-    
     @IBAction func post(_ sender: UIButton) {
         let username = AppDelegate.username
         print(username)
@@ -134,9 +136,9 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         {
             return messageLBL.text = "Select Dropoff Date!"
         }
-        guard let price = priceLBL.text, !price.isEmpty , let _ = Int(price) else{
-            return messageLBL.text =  "Enter price details and check given data is correct!"
-        }
+        guard let priceString = priceLBL.text, !priceString.isEmpty, let price = Double(priceString) else {
+                return messageLBL.text = "Enter a valid price!"
+            }
         guard let location = locationLBL.text , !location.isEmpty else
         {
             return messageLBL.text = "Enter the location details!"
@@ -194,18 +196,19 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                 }
             }
         }
-    func uploadImageAndSavePost(image: UIImage, pickupDate: String, dropoffDate: String, price: String, location: String, address: String) {
-            
+    func uploadImageAndSavePost(image: UIImage, pickupDate: String, dropoffDate: String, price: Double, location: String, address: String) {
+            let IsBooked = false
         uploadImage(image) { [self] imageUrl in
                 
                 let data: [String: Any] = [
                     "Location": location,
                     "Details": address,
-                    "Price": "$\(price)",
+                    "Price": price,
                     "Pickup Date": pickupDate,
                     "Dropoff Date": dropoffDate,
                     "ImageURL": imageUrl,
-                    "Header": HeaderLBL.text!
+                    "Header": HeaderLBL.text!,
+                    "Isbooked": IsBooked
                 ]
                 self.savePostToFirestore(data: data)
             }
