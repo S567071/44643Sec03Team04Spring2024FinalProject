@@ -13,6 +13,7 @@ class UserHomeVC: UIViewController {
     @IBOutlet var productViewCLCTN: [ProductView]!
     
     @IBOutlet weak var userLBL: UILabel!
+    
     var selectedProduct: Product?
     
     var selectedProductKey = ""
@@ -58,7 +59,6 @@ class UserHomeVC: UIViewController {
             return
         }
 
-        // Update UI elements with user data
         if let firstName = userData["FirstName"] as? String{
             self.userLBL.text = "Hi...\(firstName)!"
         } else {
@@ -77,6 +77,9 @@ class UserHomeVC: UIViewController {
             configureProductView(productView, with: product)
             setupGestureRecognizer(for: productView)
             i += 1
+            if(i==6){
+                break
+            }
         }
     }
     
@@ -120,18 +123,6 @@ class UserHomeVC: UIViewController {
                     print("Failed to load image data from URL: \(imageUrl)")
                 }
             }
-//        guard let url = URL(string: urlStr) else {
-//            print("Invalid URL for image")
-//            return
-//        }
-//
-//        productView.productIMG?.sd_setImage(with: url, placeholderImage: nil, options: .progressiveLoad) { (image, error, cacheType, imageUrl) in
-//            if let error = error {
-//                print("Error loading image: \(error.localizedDescription)")
-//                // Handle error, e.g., show placeholder image or default error image
-//            }
-//            // Optionally handle completion or caching events here
-//        }
     }
 
    

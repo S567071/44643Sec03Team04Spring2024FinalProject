@@ -21,10 +21,10 @@ class ProductDetailsVC: UIViewController {
     @IBOutlet weak var PriceLBL: UILabel!
     
     @IBOutlet weak var messageLBL: UILabel!
+        
+    @IBOutlet weak var FromDateLBL: UILabel!
     
-    @IBOutlet weak var FromDateTF: UITextField!
-    
-    @IBOutlet weak var ToDateTF: UITextField!
+    @IBOutlet weak var ToDateLBL: UILabel!
     
     var selectedProdcut : Product?
     var selectedProductKey = ""
@@ -60,9 +60,9 @@ class ProductDetailsVC: UIViewController {
         print("selected price\(String(describing: selectedProdcut?.Price))")
         PriceLBL.text = String(format: "$%0.2f", price)
         print("Price\(price)")
-        FromDateTF.text = selectedProdcut?.Pickup_Date
+        FromDateLBL.text = selectedProdcut?.Pickup_Date
         print("FromDate\(price)")
-        ToDateTF.text = selectedProdcut?.Dropoff_Date
+        ToDateLBL.text = selectedProdcut?.Dropoff_Date
         print("ToDate\(price)")
 
     }
@@ -73,21 +73,16 @@ class ProductDetailsVC: UIViewController {
         guard let image = imageIV.image else {
                     return messageLBL.text = "Please select an image"
         }
-        guard let pickup = FromDateTF.text, !pickup.isEmpty else {
+        guard let pickup = FromDateLBL.text, !pickup.isEmpty else {
             return messageLBL.text = "Select Pickup Date!"
         }
-        guard let dropoff = ToDateTF.text, !dropoff.isEmpty else
+        guard let dropoff = ToDateLBL.text, !dropoff.isEmpty else
         {
             return messageLBL.text = "Select Dropoff Date!"
         }
-        guard let price = PriceLBL.text else { return messageLBL.text =  "Enter price details and check given data is correct!" }
-//                , !price.isEmpty , let _ = Int(price) else{
-//            return messageLBL.text =  "Enter price details and check given data is correct!"
-//        }
-//        guard let location = locationLBL.text , !location.isEmpty else
-//        {
-//            return messageLBL.text = "Enter the location details!"
-//        }
+        guard let priceString = PriceLBL.text, !priceString.isEmpty, let price = Double(priceString) else {
+               return messageLBL.text = "Enter a valid price!"
+           }
         guard let address = messageLBL.text , !address.isEmpty else {
             return messageLBL.text = "Enter the address details!"
         }
@@ -95,17 +90,15 @@ class ProductDetailsVC: UIViewController {
         uploadImageAndSavePost(image: image, pickupDate: pickup, dropoffDate: dropoff, price: price, address: address)
         
     }
-    func uploadImageAndSavePost(image: UIImage, pickupDate: String, dropoffDate: String, price: String, address: String) {
+    func uploadImageAndSavePost(image: UIImage, pickupDate: String, dropoffDate: String, price: Double, address: String) {
             let IsBooked = true
         uploadImage(image) { [self] imageUrl in
-                
                 let data: [String: Any] = [
                     "Details": address,
                     "Price": "$\(price)",
                     "Pickup Date": pickupDate,
                     "Dropoff Date": dropoffDate,
                     "ImageURL": imageUrl,
-                    "Header": titleLBL.text!,
                     "Isbooked": IsBooked
                 ]
                 self.savePostToFirestore(data: data)

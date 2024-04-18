@@ -136,9 +136,9 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         {
             return messageLBL.text = "Select Dropoff Date!"
         }
-        guard let price = priceLBL.text, !price.isEmpty , let _ = Int(price) else{
-            return messageLBL.text =  "Enter price details and check given data is correct!"
-        }
+        guard let priceString = priceLBL.text, !priceString.isEmpty, let price = Double(priceString) else {
+                return messageLBL.text = "Enter a valid price!"
+            }
         guard let location = locationLBL.text , !location.isEmpty else
         {
             return messageLBL.text = "Enter the location details!"
@@ -196,14 +196,14 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                 }
             }
         }
-    func uploadImageAndSavePost(image: UIImage, pickupDate: String, dropoffDate: String, price: String, location: String, address: String) {
+    func uploadImageAndSavePost(image: UIImage, pickupDate: String, dropoffDate: String, price: Double, location: String, address: String) {
             let IsBooked = false
         uploadImage(image) { [self] imageUrl in
                 
                 let data: [String: Any] = [
                     "Location": location,
                     "Details": address,
-                    "Price": "$\(price)",
+                    "Price": price,
                     "Pickup Date": pickupDate,
                     "Dropoff Date": dropoffDate,
                     "ImageURL": imageUrl,
