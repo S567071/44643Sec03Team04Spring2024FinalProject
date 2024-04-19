@@ -25,13 +25,16 @@ struct FireStoreOperations {
     static var products: [String: Product] = [:]
 
     public static func fetchProducts() async {
+        let db = Firestore.firestore()
         do {
             let querySnapshot = try await db.collection("User").getDocuments()
             for document in querySnapshot.documents {
                 let productId = document.documentID
                 let productData = document.data()
-                if(productData["UserType"] as! String == "Owner"){
-                    print("Firestore Data: \(productData)")
+
+                if let userType = productData["UserType"] as? String, userType == "Owner",
+                   let isBooked = productData["Isbooked"] as? Bool, !isBooked {
+                    
                     let details = productData["Details"] as? String ?? "N/A"
                     let dropoffDate = productData["Dropoff Date"] as? String ?? "N/A"
                     let header = productData["Header"] as? String ?? "N/A"
@@ -39,9 +42,13 @@ struct FireStoreOperations {
                     let pickupDate = productData["Pickup Date"] as? String ?? "N/A"
                     let price = productData["Price"] as? Double ?? 0.0
                     let imageURL = productData["ImageURL"] as? String ?? "N/A"
-                    print("MOdel \(price)")
-                    let product = Product(Details: details, Dropoff_Date: dropoffDate, Header: header, Location: location, Pickup_Date: pickupDate, Price: price, ImageURL: imageURL)
-                    products[productId] = product
+                    
+                    // Check if the product is not booked (isBooked == false)
+                    if !isBooked {
+                        let product = Product(Details: details, Dropoff_Date: dropoffDate, Header: header, Location: location, Pickup_Date: pickupDate, Price: price, ImageURL: imageURL)
+                        
+                        products[productId] = product
+                    }
                 }
             }
         } catch {

@@ -32,13 +32,15 @@ class UserHomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchUserData()
-        Task {
-            await FireStoreOperations.fetchProducts()
-            displayProducts()
-
-        }
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchUserData()
+        displayProducts()
+    }
+    
     func fetchUserData() {
        
         Firestore.firestore().collection("User").document(AppDelegate.username).getDocument { [weak self] (document, error) in

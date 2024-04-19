@@ -144,6 +144,7 @@ class ProductDetailsVC: UIViewController {
                 DispatchQueue.main.async {
                     let alert = UIAlertController(title: "Thank you!", message: "Your order has been Placed Successfully!😀", preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                        FireStoreOperations.products.removeValue(forKey: self.selectedProductKey)
                         self.performSegue(withIdentifier: "ToUserPage", sender: self)
                     }
                     alert.addAction(okAction)
