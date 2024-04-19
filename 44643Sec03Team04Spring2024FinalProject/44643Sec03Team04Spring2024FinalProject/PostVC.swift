@@ -178,24 +178,25 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
 //        }
 //    }
 
-       func fetchLocationInformation(for coordinate: CLLocationCoordinate2D) {
-            let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-            CLGeocoder().reverseGeocodeLocation(location) { [weak self] placemarks, error in
-                guard let self = self else { return }
-                guard let placemark = placemarks?.first, error == nil else {
-                    print("Reverse geocoding failed with error: \(error?.localizedDescription ?? "")")
-                    return
-                }
-                let address = placemark.name ?? ""
-                let city = placemark.locality ?? ""
-                let state = placemark.administrativeArea ?? ""
-                let country = placemark.country ?? ""
-                
-                DispatchQueue.main.async {
-                    self.locationLBL.text = "\(address), \(city), \(state), \(country)"
-                }
+    func fetchLocationInformation(for coordinate: CLLocationCoordinate2D) {
+        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        CLGeocoder().reverseGeocodeLocation(location) { [weak self] placemarks, error in
+            guard let self = self else { return }
+            guard let placemark = placemarks?.first, error == nil else {
+                print("Reverse geocoding failed with error: \(error?.localizedDescription ?? "")")
+                return
+            }
+            _ = placemark.name ?? ""
+            let city = placemark.locality ?? ""
+            let state = placemark.administrativeArea ?? ""
+            let country = placemark.country ?? ""
+            let zipCode = placemark.postalCode ?? ""
+            
+            DispatchQueue.main.async {
+                self.locationLBL.text = "\(city), \(state), \(country), \(zipCode)"
             }
         }
+    }
     func uploadImageAndSavePost(image: UIImage, pickupDate: String, dropoffDate: String, price: Double, location: String, address: String) {
             let IsBooked = false
         uploadImage(image) { [self] imageUrl in
