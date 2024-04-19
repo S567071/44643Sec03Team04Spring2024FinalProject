@@ -88,11 +88,15 @@ class AccountVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = dataTV.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath)
         guard let userData = self.userData else {
-                    return cell
-                }
-        cell.textLabel?.text = userData["Header"] as? String
-        cell.detailTextLabel?.text = userData["Price"] as? String
-        return cell
+               return cell
+           }
+           
+           if let header = userData["Header"] as? String, let price = userData["Price"] as? Double {
+               cell.textLabel?.text = header
+               cell.detailTextLabel?.text = "\(price)"
+           }
+           
+           return cell
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

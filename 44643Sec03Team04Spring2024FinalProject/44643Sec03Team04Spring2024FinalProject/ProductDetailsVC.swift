@@ -13,8 +13,6 @@ import FirebaseAuth
 import FirebaseFirestore
 import CoreLocation
 class ProductDetailsVC: UIViewController {
-
-    @IBOutlet weak var titleLBL: UILabel!
     
     @IBOutlet weak var imageIV: UIImageView!
     
@@ -25,6 +23,11 @@ class ProductDetailsVC: UIViewController {
     @IBOutlet weak var FromDateLBL: UILabel!
     
     @IBOutlet weak var ToDateLBL: UILabel!
+    
+    @IBAction func viewInMapsBTN(_ sender: UIButton) {
+        performSegue(withIdentifier: "viewToMaps", sender: self)
+    }
+    
     
     var selectedProdcut : Product?
     var selectedProductKey = ""
@@ -156,6 +159,12 @@ class ProductDetailsVC: UIViewController {
     @IBAction func CancleAction(_ sender: Any) {
         self.performSegue(withIdentifier: "ToUserPage", sender: self)
     }
-   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "viewToMaps" {
+                    if let mapVC = segue.destination as? mapVC {
+                        mapVC.productLocation = selectedProdcut?.Location
+                    }
+        }
+    }
 
 }
