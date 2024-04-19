@@ -24,10 +24,9 @@ class ProductDetailsVC: UIViewController {
     
     @IBOutlet weak var ToDateLBL: UILabel!
     
-    @IBAction func viewInMapsBTN(_ sender: UIButton) {
+    @IBAction func viewBTN(_ sender: UIButton) {
         performSegue(withIdentifier: "viewToMaps", sender: self)
     }
-    
     
     var selectedProdcut : Product?
     var selectedProductKey = ""

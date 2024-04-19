@@ -186,7 +186,7 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                 print("Reverse geocoding failed with error: \(error?.localizedDescription ?? "")")
                 return
             }
-            let address = placemark.name ?? ""
+            _ = placemark.name ?? ""
             let city = placemark.locality ?? ""
             let state = placemark.administrativeArea ?? ""
             let country = placemark.country ?? ""
