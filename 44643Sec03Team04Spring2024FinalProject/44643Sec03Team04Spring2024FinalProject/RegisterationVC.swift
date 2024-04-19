@@ -72,6 +72,11 @@ class RegisterationVC: UIViewController {
         }
     }
     
+    @IBAction func cancelAction(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "loginPage", sender: self)
+    }
+    
+    
     @IBAction func userAction(_ sender: UISwitch) {
         if (sender.isOn) {
             self.ownerSwitch.isOn = false
