@@ -78,8 +78,8 @@
             filePath = "44643Sec03Team04Spring2024FinalProject/LoginVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "fetchUserRole(email:)"
             landmarkType = "7">
             <Locations>
@@ -143,8 +143,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "93"
             endingLineNumber = "93"
-            landmarkName = "fetchUserRole(email:)"
-            landmarkType = "7">
+            landmarkName = "LoginVC"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "C724CDF7-54DF-4587-A46F-5332FB78C4B6 - 24da6ae28e24709e"

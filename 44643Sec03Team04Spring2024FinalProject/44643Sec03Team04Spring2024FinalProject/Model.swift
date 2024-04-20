@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestore
 
 
 struct Product: Codable{
@@ -31,13 +32,15 @@ struct FireStoreOperations {
                 let productId = document.documentID
                 let productData = document.data()
                 if(productData["UserType"] as! String == "Owner"){
+                    print("Firestore Data: \(productData)")
                     let details = productData["Details"] as? String ?? "N/A"
-                    let dropoffDate = productData["Dropoff_Date"] as? String ?? "N/A"
+                    let dropoffDate = productData["Dropoff Date"] as? String ?? "N/A"
                     let header = productData["Header"] as? String ?? "N/A"
                     let location = productData["Location"] as? String ?? "N/A"
-                    let pickupDate = productData["Pickup_Date"] as? String ?? "N/A"
+                    let pickupDate = productData["Pickup Date"] as? String ?? "N/A"
                     let price = productData["Price"] as? Double ?? 0.0
                     let imageURL = productData["ImageURL"] as? String ?? "N/A"
+                    print("MOdel \(price)")
                     let product = Product(Details: details, Dropoff_Date: dropoffDate, Header: header, Location: location, Pickup_Date: pickupDate, Price: price, ImageURL: imageURL)
                     products[productId] = product
                 }

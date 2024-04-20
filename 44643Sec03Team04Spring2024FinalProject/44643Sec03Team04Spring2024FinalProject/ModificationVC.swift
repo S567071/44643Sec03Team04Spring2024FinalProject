@@ -68,7 +68,7 @@ class ModificationVC: UIViewController, UIImagePickerControllerDelegate, UINavig
         {
             return messageLBL.text = "Select Dropoff Date!"
         }
-        guard let price = priceTF.text, !price.isEmpty , let _ = Int(price) else{
+        guard let priceString = priceTF.text, !priceString.isEmpty , let price = Double(priceString) else{
             return messageLBL.text =  "Enter price details and check given data is correct!"
         }
         guard let location = locationTF.text , !location.isEmpty else
@@ -79,7 +79,7 @@ class ModificationVC: UIViewController, UIImagePickerControllerDelegate, UINavig
             return messageLBL.text = "Enter the address details!"
         }
         messageLBL.text = nil
-        uploadImageAndSavePost(image: image, pickupDate: pickup, dropoffDate: dropoff, price: price, location: location, address: address)
+        uploadImageAndSavePost(image: image, pickupDate: pickup, dropoffDate: dropoff, price: Double(price), location: location, address: address)
     }
     
     func fetchData() {
@@ -135,8 +135,8 @@ class ModificationVC: UIViewController, UIImagePickerControllerDelegate, UINavig
             print("DropoffDate is empty or nil.")
         }
         
-        if let price = userData["Price"] as? String {
-            priceTF.text = price
+        if let price = userData["Price"] as? Double {
+            priceTF.text = "\(price)"
         } else {
             print("Price is nil.")
         }
@@ -193,12 +193,12 @@ class ModificationVC: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.view.endEditing(true)
         
     }
-    func uploadImageAndSavePost(image: UIImage, pickupDate: String, dropoffDate: String, price: String, location: String, address: String) {
+    func uploadImageAndSavePost(image: UIImage, pickupDate: String, dropoffDate: String, price: Double, location: String, address: String) {
         uploadImage(image) { [self] imageUrl in
             let data: [String: Any] = [
                 "Location": location,
                 "Details": address,
-                "Price": "$\(price)",
+                "Price": price,
                 "Pickup Date": pickupDate,
                 "Dropoff Date": dropoffDate,
                 "ImageURL": imageUrl
