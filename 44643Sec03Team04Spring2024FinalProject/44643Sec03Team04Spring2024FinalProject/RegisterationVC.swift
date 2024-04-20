@@ -1,5 +1,8 @@
 import UIKit
 import Firebase
+import FirebaseAuth
+import AVFoundation
+
 
 class RegisterationVC: UIViewController {
 
@@ -21,6 +24,7 @@ class RegisterationVC: UIViewController {
     var validationMessage = ""
     
     @IBAction func registerAction(_ sender: UIButton) {
+        AudioServicesPlaySystemSound(1103)
         let isFormValid = self.validateInputFields()
         var validationMessage  = ""
         if (isFormValid) {
@@ -67,6 +71,7 @@ class RegisterationVC: UIViewController {
     }
     
     @IBAction func cancelAction(_ sender: UIButton) {
+        AudioServicesPlaySystemSound(1000)
         self.performSegue(withIdentifier: "loginPage", sender: self)
     }
     

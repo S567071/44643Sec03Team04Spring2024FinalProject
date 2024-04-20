@@ -21,7 +21,6 @@ class OwnerVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "machineCell", for: indexPath)
-        // Configure your cell here
         cell.textLabel?.text = rowTexts[indexPath.row]
         cell.accessoryType = .disclosureIndicator
         return cell
@@ -35,8 +34,6 @@ class OwnerVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
         
         categoryTV.dataSource = self
         categoryTV.delegate = self
-        
-        // Register cell
         categoryTV.register(UITableViewCell.self, forCellReuseIdentifier: "machineCell")
     }
     
