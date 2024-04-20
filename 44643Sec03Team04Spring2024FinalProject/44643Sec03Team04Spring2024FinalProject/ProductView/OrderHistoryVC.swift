@@ -195,14 +195,24 @@ class OrderHistoryVC: UIViewController {
     }
 }
 
+//
+//extension OrderHistoryVC {
+//    
+//    func showAlert() {
+//        let alert = UIAlertController(title: "Message", message: "Please buy something!", preferredStyle: .alert)
+//        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+//            self.navigationController?.popViewController(animated: true)
+//        }
+//        alert.addAction(okAction)
+//        present(alert, animated: true, completion: nil)
+//    }
+//}
 
 extension OrderHistoryVC {
     
     func showAlert() {
         let alert = UIAlertController(title: "Message", message: "Please buy something!", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            self.navigationController?.popViewController(animated: true)
-        }
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
