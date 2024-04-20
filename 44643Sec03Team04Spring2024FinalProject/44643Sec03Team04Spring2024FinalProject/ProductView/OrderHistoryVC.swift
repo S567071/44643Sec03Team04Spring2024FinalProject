@@ -47,7 +47,7 @@ class OrderHistoryVC: UIViewController {
         let userCollectionRef = Firestore.firestore().collection("User")
         let userDocRef = userCollectionRef.document(AppDelegate.username)
         
-        self.navigationItem.title = "Details"
+        self.navigationItem.title = "Hi"
         
         userDocRef.getDocument { (document, error) in
                if let document = document, document.exists {
@@ -63,7 +63,12 @@ class OrderHistoryVC: UIViewController {
                            
                            if(pickupDate.count < 2) {
                                self.bigContainer.isHidden = true
+                               
+                               self.showAlert()
+                                
+                               
                            }else {
+                               self.navigationItem.title = "Details"
                                self.bigContainer.isHidden = false
                            }
                        }else{
@@ -72,6 +77,10 @@ class OrderHistoryVC: UIViewController {
                        
                        if let dropoffDate = data["Dropoff Date"] as? String {
                            self.ToDateLBL.text = dropoffDate
+                       }
+                       
+                       if(self.ToDateLBL.text!.count > 2) {
+                           self.navigationItem.title = "Details"
                        }
                        
                        if let price = data["Price"] as? String {
@@ -89,6 +98,7 @@ class OrderHistoryVC: UIViewController {
                        }
                        
                        if let FirstName = data["FirstName"] as? String {
+                           self.navigationItem.title = "Hi \(FirstName)"
                            self.name.text = FirstName
                            
                            if let LastName = data["LastName"] as? String {
@@ -182,5 +192,28 @@ class OrderHistoryVC: UIViewController {
     
     @IBAction func CancleAction(_ sender: Any) {
         self.performSegue(withIdentifier: "ToUserPage", sender: self)
+    }
+}
+
+//
+//extension OrderHistoryVC {
+//    
+//    func showAlert() {
+//        let alert = UIAlertController(title: "Message", message: "Please buy something!", preferredStyle: .alert)
+//        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+//            self.navigationController?.popViewController(animated: true)
+//        }
+//        alert.addAction(okAction)
+//        present(alert, animated: true, completion: nil)
+//    }
+//}
+
+extension OrderHistoryVC {
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "Message", message: "Please buy something!", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
 }
