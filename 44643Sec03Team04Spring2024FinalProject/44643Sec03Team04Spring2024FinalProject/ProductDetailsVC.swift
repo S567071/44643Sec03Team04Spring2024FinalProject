@@ -89,7 +89,6 @@ class ProductDetailsVC: UIViewController {
         guard let address = messageLBL.text , !address.isEmpty else {
             return messageLBL.text = "Enter the address details!"
         }
-        messageLBL.text = nil
         uploadImageAndSavePost(image: image, pickupDate: pickup, dropoffDate: dropoff, price: price, address: address)
         
     }

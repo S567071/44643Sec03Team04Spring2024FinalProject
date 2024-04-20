@@ -60,8 +60,6 @@ class AccountVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             print("User data is nil.")
             return
         }
-
-        // Update UI elements with user data
         if let firstName = userData["FirstName"] as? String, let lastName = userData["LastName"] as? String {
             self.usernameLBL.text = "Hello!...\(firstName) \(lastName)"
         } else {
